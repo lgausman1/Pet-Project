@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "welcome#index"
 
-  get '/users/new', to: 'users#new', as: "new_user"
+  get '/register', to: 'users#new', as: "register"
 
   post '/users', to: 'users#create'
 
