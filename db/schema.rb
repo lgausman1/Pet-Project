@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150622220924) do
     t.string   "personality"
     t.string   "activity_level"
     t.string   "description"
-    t.integer  "shelter_id"
+    t.string   "shelter_id"
   end
 
   create_table "users", force: :cascade do |t|
