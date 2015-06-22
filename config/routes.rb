@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
 
 
+
 #   Prefix Verb   URI Pattern          Controller#Action
 #     root GET    /                    welcome#index
 # new_user GET    /users/new(.:format) users#new
