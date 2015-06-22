@@ -14,6 +14,11 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def survey
+		@user = User.find(params[:id])
+		render :survey
+	end
+
 	def show
 		@user = User.find(params[:id])
 		render :show	

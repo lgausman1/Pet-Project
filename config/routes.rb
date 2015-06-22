@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   patch 'users/:id', to: 'users#update'
 
-  get 'users/survey', to: 'users#survey', as: "new_survey"
+  get 'users/:id/survey', to: 'users#survey', as: "new_survey"
 
   get 'login', to: "sessions#new", as: "login"
 
