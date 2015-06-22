@@ -19,6 +19,9 @@ Rails.application.routes.draw do
 
   delete "logout", to: "sessions#delete", as: "logout"
 
+  get '/pets', to: "pets#index"
+
+  
 
 
 
