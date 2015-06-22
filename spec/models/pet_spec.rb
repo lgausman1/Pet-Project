@@ -11,5 +11,13 @@ describe Pet do
     expect(pet.save).to be_truthy
   end
  
+ it "responds to something" do
+ 	 pet = Pet.create({
+    	name: "fluffers",
+    	shelter_location: "SF SPCA",
+    	thumbnail: "http://newimages.mobi/wp-content/uploads/fluffy-bunny-photos-4.jpg"
+    	})
+ 	expect(pet).to respond_to(:name)
+ end
 end
 
