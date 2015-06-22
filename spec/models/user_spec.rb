@@ -26,20 +26,12 @@ describe User do
  
 end
 
-# use for integration testing(full-stack/redirect and view expecations)
-# RSpec.describe "Widget management", :type => :request do
+# use as a basis for integration testing(full-stack/redirect and view expecations)
+RSpec.describe "User login", :type => :request do
 
-#   it "creates a Widget and redirects to the Widget's page" do
-#     get "/widgets/new"
-#     expect(response).to render_template(:new)
+  it "creates a user and redirects to the user's page" do
+    get "/users/new"
+    expect(response).to render_template(:new)
 
-#     post "/widgets", :widget => {:name => "My Widget"}
-
-#     expect(response).to redirect_to(assigns(:widget))
-#     follow_redirect!
-
-#     expect(response).to render_template(:show)
-#     expect(response.body).to include("Widget was successfully created.")
-#   end
-
-# end
+ end
+ end
