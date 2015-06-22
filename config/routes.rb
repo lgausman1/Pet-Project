@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   patch 'users/:id', to: 'users#update'
 
+<<<<<<< HEAD
   get 'users/survey', to: 'users#survey', as: "new_survey"
+=======
+  get 'users/:id/survey', to: 'users#survey', as: "new_survey"
+>>>>>>> 79526335ed2a90d77a01db1e55f9463897838b62
 
   get 'login', to: "sessions#new", as: "login"
 
