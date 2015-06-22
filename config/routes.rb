@@ -7,11 +7,28 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: "user"
 
+  get 'users/:id/edit', to: 'users#edit', as: "edit_user"
+
+  patch 'users/:id', to: 'users#update'
+
+  get 'users/survey', to: 'users#survey', as: "new_survey"
+
   get 'login', to: "sessions#new", as: "login"
 
-  post 'login', to: "sessions#create"
+  post 'sessions', to: "sessions#create"
 
   delete "logout", to: "sessions#delete", as: "logout"
 
+
+
+
+#   Prefix Verb   URI Pattern          Controller#Action
+#     root GET    /                    welcome#index
+# new_user GET    /users/new(.:format) users#new
+#    users POST   /users(.:format)     users#create
+#     user GET    /users/:id(.:format) users#show
+#    login GET    /login(.:format)     sessions#new
+#          POST   /login(.:format)     sessions#create
+#   logout DELETE /logout(.:format)    sessions#delete
 
 end
