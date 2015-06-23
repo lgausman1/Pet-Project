@@ -21,7 +21,11 @@ Rails.application.routes.draw do
 
   get '/pets', to: "pets#index"
 
-  get '/pets/:id', to: 'pets#show'  
+  get '/pets/:id', to: 'pets#show'
+
+  get '/preferences/users/:id', to: 'preferences#survey'
+
+  post '/preferences', to: 'preferences#create'
 
 
 
