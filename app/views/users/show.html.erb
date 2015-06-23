@@ -1,4 +1,4 @@
-<%= image_tag(@user.photo_url) %>
+<%= image_tag(@user.photo_url), class: "img-rounded" %>
 
 <% if current_user == @user %>
 <div class="jumbotron">
@@ -8,6 +8,26 @@
 <div class="jumbotron">
 <h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
+
+<% @pets.each do |pet| %>
+
+	<%= pet.name %> <br>
+	<img src="<%= pet.thumbnail %>	">
+	<%= pet.breed %> <br>
+	<%= pet.species %> <br>
+	<%= pet.age %> <br>
+	<%= pet.gender %>
+	<h3> ACTIVITY LEVEL</h3><%= pet.activity_level%>
+<% end %>
+
+
+
+
+
+
+
+
+
 <% @user %>'s pet survey
 <br>
 <%= @user.survey_info %>
