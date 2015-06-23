@@ -3,10 +3,10 @@
 <div class="container">
 <h1>Edit Profile</h1></div></div>
 <hr>
-<%= form_for @user do |f| %>
+<%= bootstrap_form_for @user do |f| %>
 
 <%= f.text_field :first_name, placeholder: 'First Name' %>
-	</div>
+	
 	<div>
 		<%= f.text_field :last_name, placeholder: 'Last Name' %>
 	</div>
