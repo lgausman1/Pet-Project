@@ -1,23 +1,17 @@
+<%= image_tag(@user.photo_url) %>
+
 <% if current_user == @user %>
 <div class="jumbotron">
-<div class="container">
-<h3>Hello, <%= @user.first_name.capitalize %></h3></div></div>
+
+<h3>Hello, <%= @user.first_name.capitalize %></h3></div>
 <% else %>
 <div class="jumbotron">
-<div class="container">
-<h3><%= @user.first_name.capitalize %>'s page</h3></div></div>
+<h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
-
-
-
-
-
-
-
-
-
-
-
+<% @user %>'s pet survey
+<br>
+<%= @user.survey_info %>
+<hr>
 
 
 <!-- logout button -->

@@ -7,10 +7,10 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(user_params)
 		login(@user)
-		if @user
-			redirect_to "/users/#{@user.id}"
+		if current_user == @user
+			redirect_to user_path(@user)
 		else
-			redirect_to new_user_path
+			redirect_to register_path
 		end
 	end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:first_name, :last_name, :email, :password)
+			params.require(:user).permit(:first_name, :last_name, :email, :password, :photo_url, :survey_info)
 		end
 
 end
