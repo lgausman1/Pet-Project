@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 		if @user
 			redirect_to "/preferences/users/#{@user.id}"
 		else
-			redirect_to new_user_path
+			redirect_to register_path
 		end
 	end
 
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 
 	private
 		def user_params
-			params.require(:user).permit(:first_name, :last_name, :email, :password)
+			params.require(:user).permit(:first_name, :last_name, :email, :password, :photo_url, :survey_info)
 		end
 
 		def cat_or_dog
