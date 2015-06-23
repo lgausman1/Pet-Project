@@ -1,7 +1,8 @@
-<%= @user.first_name %>
-
-<<<<<<< HEAD
-=======
+<% if current_user == @user %>
+<h1>Hello, <%= @user.first_name.capitalize %></h1>
+<% else %>
+<h4><%= @user.first_name.capitalize %>'s page</h4>
+<% end %>
 <!-- logout button -->
->>>>>>> 79526335ed2a90d77a01db1e55f9463897838b62
+
 <%= button_to "Logout", logout_path, method: :delete %>
