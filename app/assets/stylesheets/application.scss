@@ -73,8 +73,14 @@
 		}
 
 		/*Center Icons*/
-		nav.sidebar a{
-			padding-right: 13px;
+		nav.sidebar a, li{
+			padding-right: 6px;
+			
+		}
+
+		nav.sidebar .center{
+			vertical-align: center;
+			padding-left: 105px;
 		}
 
 		/*adds border top to first nav box */
