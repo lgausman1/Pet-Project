@@ -9,6 +9,7 @@ this is a survey
 <%= form_for @user do |f|%>
 	<p>What is your prefered animal? cat/dog</p>
 	<%= f.select :first_name, options_for_select([['cat', 1], ['dog', 2]]) %>
+
 	<p>What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)</p>
 	<%= f.select :first_name, options_for_select([['high', 1], ['medium', 2], ["low", 3]]) %>
 
