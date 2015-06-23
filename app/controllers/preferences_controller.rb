@@ -4,6 +4,12 @@ class PreferencesController < ApplicationController
 		@preference = Preference.create(survey_params)
 	end
 
+	def survey
+		@user = User.find(current_user)
+		@preference = Preference.new
+		render :survey
+	end
+
 	def edit
 	end
 
@@ -18,6 +24,6 @@ class PreferencesController < ApplicationController
 			 # give these params to user_preferences and probably push it to user
 			 # user_preferences.create(survey_params)
 		end
-		
+
 
 end
