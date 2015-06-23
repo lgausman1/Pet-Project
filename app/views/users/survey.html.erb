@@ -1,14 +1,46 @@
 this is a survey
 
+<!-- need model and controller for preferences. -->
+<!-- the preferences will "belong_to" a user -->
+<!-- the controller will handle the creation and edit/updating preferences as well as the logic for  -->
+<!-- determinging which results are shown -->
+
+<!-- might need to change @user to @preferences -->
+<%= form_for @user do |f|%>
+	<p>What is your prefered animal? cat/dog</p>
+	<%= f.select :first_name, options_for_select([['cat', 1], ['dog', 2]]) %>
+	<p>What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)</p>
+	<%= f.select :first_name, options_for_select([['high', 1], ['medium', 2], ["low", 3]]) %>
+
+	<p> Do you have young children(less than 5 years old)? yes/no (if yes, don't suggest puppies or kittens ==> less than 5 months)
+ </p>
+	<%= f.select :first_name, options_for_select([['yes', 1], ['no', 2]]) %>
+
+	<p>How big is your home? One bedroom or studio(not a lot of space)/2-3 bedroom(more space)/house(a lot of space) </p>
+	<%= f.select :first_name, options_for_select([['small apartment', 1], ['big apartment', 2], ["house", 3]]) %>
+
+	<p> How much time can you spend with the animal per day? not a lot/a resonable amount/I can bring my pet(dog) to work
+ </p>
+	<%= f.select :first_name, options_for_select([['not a lot', 1], ['decent amount', 2], ["lots of time", 3]]) %>
+
+	<p> Are you willing to spend a lot of time training a pet? yes/somewhat(will take pet to trainging school if dog)/no, it should come trained </p>
+	<%= f.select :first_name, options_for_select([['yes'], ['no']]) %>
+
+	<!-- need hidded field that contains @user.id -->
+
+<% end %>
 
 
-What is your prefered animal? cat/dog
 
-What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)
 
-Do you have young children(less than 8 years old)? yes/no (if yes, don't suggest puppies or kittens)
 
-How big is your home? One bedroom or studio(not a lot of space)/2-3 bedroom(more space)/house(a lot of space)
+
+
+
+
+
+
+
 
 
 
