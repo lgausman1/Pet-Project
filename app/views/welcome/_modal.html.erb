@@ -1,0 +1,58 @@
+<button class="btn btn-info btn-lg" data-target="#myModal" data-toggle="modal" type="button">Login/Register</button>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Register</h4>
+      </div>
+      <div class="modal-body">
+        <div id="signDiv" style="display: block;">
+          <%= form_for :user, url: "/users", method: "post" do |f| %>
+          <div class="form-group">
+            <%= f.label :first_name, "First Name" %>
+            <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name, "Last Name" %>
+            <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "Email" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, "Password" %>
+            <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Register", class: "form-control" %>
+          </div>
+          <% end %>
+          <button aria-pressed="false" autocomplete="off" class="btn btn-primary" data-toggle="button" id="formToggle" onclick="petmatch.memberSignIn()" type="button">
+            Member Sign In
+          </button>
+        </div>
+        <div id="logDiv" style="display: none;">
+          <%= form_for :user, url: "/sessions", method: "post" do |f| %>
+          <div class="field">
+            <%= f.label :email, "Email" %>
+            <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="field">
+            <%= f.label :password, "Password" %>
+            <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+          </div>
+          <div>
+            <%= f.submit "Sign In", class: "form-control" %>
+          </div>
+          <% end %>
+          <button aria-pressed="false" autocomplete="off" class="btn btn-primary" data-toggle="button" id="formToggle2" onclick="petmatch.memberRegister()" type="button">
+            Register
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
