@@ -12,13 +12,13 @@ pet3 = Pet.create(name: 'whiskers', species: 'cat', breed: 'maincoon', age: '5 m
 
 require 'HTTParty'
 
-response = HTTParty.get 'https://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+response = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
 response["results"]["collection1"].each do |cat|
 	Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: cat["age"],
 				 weight: cat["weight"], description: cat["description"], thumbnail: cat["picture"]["src"]})
 end
 
-response = HTTParty.get 'https://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+response = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
 
 response["results"]["collection1"].each do |dog|
 	Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: dog["age"],
