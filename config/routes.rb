@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   patch 'users/:id', to: 'users#update'
 
-  get 'users/survey', to: 'users#survey', as: "new_survey"
+  get '/users/:id/survey', to: 'users#survey', as: "new_survey"
 
   get 'login', to: "sessions#new", as: "login"
 
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   get '/pets', to: "pets#index"
 
   get '/pets/:id', to: 'pets#show'
+
+  get '/preferences/users/:id', to: 'preferences#survey'
+
+  post '/preferences', to: 'preferences#create'
 
 
 
