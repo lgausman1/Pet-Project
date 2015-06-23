@@ -1,0 +1,14 @@
+<%= form_for @preference do |f|%>
+	<p>What is your prefered animal? cat/dog</p>
+	<%= f.select :cat_or_dog, options_for_select([['cat'], ['dog']]) %>
+
+	<p>What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)</p>
+	<%= f.select :activity_level, options_for_select([['High'], ['Medium'], ["Low"]]) %>
+
+	<!-- need hidded field that contains @user.id -->
+	<div style="display: none">
+		<%= f.text_field :user_id, value: "#{@user.id}" %>
+	</div>
+
+	<%= f.submit "Submit" %>
+<% end %>
