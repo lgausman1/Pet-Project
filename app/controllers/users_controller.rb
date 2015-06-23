@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		# this is maybe where the survey info will be applied
+		# to what pets will be shown
 		@user = User.find(params[:id])
 		render :show	
 	end
