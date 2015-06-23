@@ -1,5 +1,26 @@
+<hr>
 <h1 class="col-md-12">Edit Profile</h1>
-<%= render partial: "users/form", locals: {user: @user} %>
+<hr>
+<%= form_for @user do |f| %>
+
+<%= f.text_field :first_name, placeholder: 'First Name' %>
+	</div>
+	<div>
+		<%= f.text_field :last_name, placeholder: 'Last Name' %>
+	</div>
+	<div>
+		<%= f.email_field :email, placeholder: 'Email (username)' %>
+
+	</div>
+	<hr>
+	<h4>Reset Password</h4>
+	<div>
+		<%= f.password_field :password, placeholder: 'Password' %>
+	</div>
+	<div>
+		<%= f.submit "Save Changes" %>
+	</div>
+<% end %>
 
     <div class="form-group">
       <%= link_to "Cancel", "javascript:history.go(-1);", class: "col-sm-1" %>
