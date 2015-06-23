@@ -14,20 +14,19 @@
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
       <!-- home button -->
-        <li><%= link_to "Home", root_path, method: :get %><span class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></li>
+        <li><a href="<%=root_path%>">Home<span style="font-size:16px;" class="pull-right hidden-xs center showopacity glyphicon glyphicon-home"></span></a></li>
 
         <!-- take me to my page -->
-          <% if @user == true %>
-        <li ><a href="<%=user_path(@user.id)%>">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-        <li ><a href="<% logout_path %>">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-        <li>
-          <a>Settings</span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-        </li>
+          <% if @user %>
+        <li><a href="<%=user_path(current_user.id)%>">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+        
+        <!-- logout button -->
+        <li><a data-method="delete" href="<%= logout_path %>">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
+        
+        <!-- edit profile -->
+        <li><a href="<%=edit_user_path(current_user.id)%>">Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
         <% end %>
         </ul>
     </div>
   </div>
 </nav>
-<div class="main">
-<!-- Content Here -->
-</div>
