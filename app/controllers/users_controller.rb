@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 			.where("weight < ?", size_of_home)
 			.where("age > ?", time_with_pet)
 		@user = User.find(params[:id])
+		@preference = Preference.find_by({user_id: params[:id]})
 		render :show	
 
 	end
