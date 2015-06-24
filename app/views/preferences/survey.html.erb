@@ -6,6 +6,9 @@
 	<%= f.select :activity_level, options_for_select([['High'], ['Medium'], ["Low"]]) %>
 
 	<!-- need hidded field that contains @user.id -->
+	<p> Do you have young children(less than 5 years old)?
+ </p>
+	<%= f.select :young_children, options_for_select([['yes', 1], ['no', 2]]) %>
 	<div style="display: none">
 		<%= f.text_field :user_id, value: "#{@user.id}" %>
 	</div>

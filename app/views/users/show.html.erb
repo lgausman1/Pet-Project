@@ -1,8 +1,9 @@
 
 
+
 <% if current_user == @user %>
 <div class="jumbotron">
-
+z
 <h3>Hello, <%= @user.first_name.capitalize %></h3></div>
 <% else %>
 <div class="jumbotron">
@@ -15,7 +16,7 @@
 	<img src="<%= pet.thumbnail %>	">
 	<%= pet.breed %> <br>
 	<%= pet.species %> <br>
-	<%= pet.age %> <br>
+	AGE <%= pet.age %> <br>
 	<%= pet.gender %>
 	<h3> ACTIVITY LEVEL</h3><%= pet.activity_level%>
 <% end %>

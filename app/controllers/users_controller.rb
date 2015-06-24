@@ -32,9 +32,10 @@ class UsersController < ApplicationController
 		# 	# WHERE weight <= size_of_home
 		# 	# WHERE  = time_with_pet
 		# 	# WHERE  = training_pet 
-		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level).where(	)
+		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level).where("age > ?", 5)
 		@user = User.find(params[:id])
 		render :show	
+
 	end
 
 	def edit
