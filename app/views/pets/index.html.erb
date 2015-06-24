@@ -1,17 +1,20 @@
-<div class="container">
-<ul class="row">
-<% @pets.each do |pet| %>
-	<% if pet.thumbnail == nil %>
-	<%= pet.species %>
-	
-	<% else %>
-	<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-	<img src="<%= pet.thumbnail %>", class="img-responsive img-thumbnail">
-	<% end %>
-	<%= link_to pet.name, pet_path(pet.id) %> 
-	</li>
-	<br>
-	</ul>
-<% end %>
+<%= render partial: "layouts/navbar2", locals: {user: @user} %>
 
+<div class="row" style="margin-top: 200px;">
+	<div class="col-md-12">
+	<% @pets.each do |pet| %>
+		<% if pet.thumbnail == nil %>
+			<div style="display: none;"><%= pet.species %></div>
+		
+		<% else %>
+			<div class="col-md-3 text-center">
+				<img src="<%= pet.thumbnail %>" width="220" height="220">
+				<p><%= link_to pet.name, pet.link %> </p>
+			</div>
+		
+		<% end %>
+	<% end %>
+
+	</div>
 </div>
+
