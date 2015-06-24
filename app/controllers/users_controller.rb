@@ -22,17 +22,7 @@ class UsersController < ApplicationController
 		render :survey
 	end
 
-	def show
-		# should the sql query and the other methods be here or in the preferences controller?
-			# methods: cat_or_dog, activity_level, young_children, size_of_home, time_with_pet, training_pet
-		# sql query using this info on Pets 
-		# SELECT * FROM pets
-		# 	WHERE species = cat_or_dog
-		# 	WHERE activity_level = activity_level
-		# 	# WHERE age > "5M"
-		# 	# WHERE weight <= size_of_home
-		# 	# WHERE  = time_with_pet
-		# 	# WHERE  = training_pet 
+	def show 
 		@pets = Pet.all
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
@@ -62,6 +52,7 @@ class UsersController < ApplicationController
 			.where("age > ?", age_cutoff)
 			.where("weight < ?", size_of_home)
 			.where("age > ?", time_with_pet)
+			.where("personality != ?", user_personality)
 		@user = User.find(params[:id])
 
 		render :matches
@@ -76,7 +67,7 @@ class UsersController < ApplicationController
 
 				Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
 						 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"],
-						 thumbnail: cat["picture"]["src"], shelter_id: cat["id"]})
+						 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
 
 		end
 			elsif cat_or_dog == "dog"
@@ -86,7 +77,7 @@ class UsersController < ApplicationController
 			response_dogs["results"]["collection1"].each do |dog|
 				Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
 						 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
-						 personality: dog["personality"], activity_level: dog["activity_level"], shelter_id: dog["id"]})
+						 personality: dog_personality(dog["personality"]), activity_level: dog["activity_level"], shelter_id: dog["id"]})
 			end
 		end
 
@@ -188,6 +179,28 @@ class UsersController < ApplicationController
 			end 
 		end 
 
-		
+		def user_personality
+			if cat_or_dog = "cat"
+				if @user_preferences.user_personality == "I'm very active"
+					return "poet"
+				elsif @user_preferences.user_personality == "I prefer quiet places"
+					return "lionhearted"
+				end
+			end
+		end
+
+		def dog_personality(data)
+			if data == nil
+				return "zen master"
+			end
+			return data
+		end
+
+		def cat_personality(data)
+			if data == nil
+				return "cat next door"
+			end
+			return data
+		end
 end
 
