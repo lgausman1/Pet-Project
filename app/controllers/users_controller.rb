@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
 			.where("age > ?", age_cutoff)
-			.where("weight > ?", size_of_home)
+			.where("weight < ?", size_of_home)
 		@user = User.find(params[:id])
 		render :show	
 
@@ -87,15 +87,19 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "small apartment"
-				# return small to medium dogs
-				return 55
-			elsif @user_preferences.size_of_home == "big apartment"
-				# return all but the largest dogs
-				return 100
-			elsif @user_preferences.size_of_home == "house"
-				# return all dogs
-				return 200
+			if cat_or_dog == "dog"
+				if @user_preferences.size_of_home == "1" #was "small apartment"
+					# return small to medium dogs
+					return 880
+				elsif @user_preferences.size_of_home == "2" #was "big apartment"
+					# return all but the largest dogs
+					return 1600
+				elsif @user_preferences.size_of_home == "3" #was "house"
+					# return all dogs
+					return 3200
+				end
+			elsif cat_or_dog == "cat"
+				return 3200
 			end		
 		end
 
