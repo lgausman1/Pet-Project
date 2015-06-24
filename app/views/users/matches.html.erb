@@ -1,0 +1,20 @@
+Check out these hot animals in your area!
+<%= @user.first_name %> <br>
+
+<%= link_to "edit", edit_preferences_path(@user.id) %>
+
+<%= button_to "Refresh pets", matches_path %>
+
+<% @pets.each do |pet| %>
+
+	<%= pet.name %> <br>
+	<img src="<%= pet.thumbnail %>	">
+	<%= pet.breed %> <br>
+	<%= pet.species %> <br>
+	<!-- NOTE the pets age is in months, not years, so that will need to be parsed  -->
+	AGE <%= pet.age %> <br>
+	<%= pet.gender %>
+	<%= pet.activity_level%>
+	<!-- NOTE the pets weight is in oz, not pounds, so that will need to be parsed  -->
+	<%= pet.weight%>
+<% end %> 
