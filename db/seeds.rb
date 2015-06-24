@@ -14,14 +14,36 @@ require 'HTTParty'
 
 response = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
 response["results"]["collection1"].each do |cat|
-	Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: cat["age"],
+	Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
 				 weight: cat["weight"], description: cat["description"], thumbnail: cat["picture"]["src"]})
 end
 
 response = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
 
 response["results"]["collection1"].each do |dog|
-	Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: dog["age"],
+	Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
 				 weight: dog["weight"], description: dog["description"], thumbnail: dog["picture"]["src"],
 				 personality: dog["personality"], activity_level: dog["activity_level"]})
 end
+
+
+def convert_age_to_months(age_string)
+	parse_string_to_number(age_string, 12)
+end 
+
+def convert_weight_to_ounces(weight_string)
+	parse_string_to_number(weight_string, 16)
+end 
+
+# string is something like "3Y 2M" for age or "5lbs. 6oz." for weight
+# multiplier is 12 for age and 16 for weight.
+def parse_string_to_number(string, multiplier)
+	num_string = num_string.gsub(/[^0-9]/, '')
+	# num_array is an array of the component numbers making up the string
+	num_array = num_string.split(' ').map { |s| s.to_i }	
+	if num_array.length == 1
+		return num_array[0]
+	else 
+		return num_array[0] * multiplier + num_array[1]
+	end 
+end 
