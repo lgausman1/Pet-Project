@@ -13,19 +13,23 @@ class PreferencesController < ApplicationController
 	end
 
 	def edit
+		@user = User.find(current_user)
+		@preference = Preference.find_by({user_id: params[:id]})
+		render :edit
 	end
 
 	def update
+		@preference = Preference.find_by({user_id: params[:id]})
+		@preference.update(survey_params)
+		redirect_to user_path(current_user)
 	end
 
 	private
 
 		def survey_params
-			survey_params = params.require(:preference).permit(:cat_or_dog, :activity_level, :user_id)
+			survey_params = params.require(:preference).permit(:cat_or_dog, :activity_level, :young_children, :size_of_home, :user_id)
 			# survey_params = params.require(:user).permit(:cat_or_dog, :size_of_home, :young_children,
 												# :activity_level, :time_with_pet, :training_pet, :user_id)
-			 # give these params to user_preferences and probably push it to user
-			 # user_preferences.create(survey_params)
 		end
 
 

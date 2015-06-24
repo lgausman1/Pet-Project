@@ -5,3 +5,5 @@
 <%= @pet.age %> <br>
 <%= @pet.gender %><br>
 <%= @pet.link %>
+
+Find me at <%= link_to @pet.name, "https://www.sfspca.org/adoptions/pet-details/#{@pet.shelter_id}" %> 

@@ -19,13 +19,17 @@ Rails.application.routes.draw do
 
   delete "logout", to: "sessions#delete", as: "logout"
 
-  get '/pets', to: "pets#index"
+  get '/pets', to: "pets#index", as: "pets"
 
-  get '/pets/:id', to: 'pets#show'
+  get '/pets/:id', to: 'pets#show', as: "pet"
 
   get '/preferences/users/:id', to: 'preferences#survey'
 
   post '/preferences', to: 'preferences#create'
+
+  get '/preferences/users/:id/edit', to: 'preferences#edit', as: "edit_preferences"
+
+  patch '/preferences/users/:id', to: 'preferences#update', as: "preference"
 
 
 

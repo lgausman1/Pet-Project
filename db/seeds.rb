@@ -40,11 +40,19 @@ response = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU
 response["results"]["collection1"].each do |cat|
 
 	Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
-				 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"], thumbnail: cat["picture"]["src"]})
+				 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"],
+				 thumbnail: cat["picture"]["src"], shelter_id: cat["id"]})
 
-	Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: cat["age"],
-				 weight: cat["weight"], description: cat["description"], thumbnail: cat["picture"]["src"], link: cat["url"]})
 end
+
+response = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+
+response["results"]["collection1"].each do |dog|
+	Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
+				 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
+				 personality: dog["personality"], activity_level: dog["activity_level"], shelter_id: dog["id"]})
+end
+
 
 
 
