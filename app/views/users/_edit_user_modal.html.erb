@@ -1,0 +1,52 @@
+<a data-toggle="modal" data-target="#edit_user_Modal">Click to Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+<!-- Modal -->
+<div id="edit_user_Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        
+      	<%= bootstrap_form_for @user do |f| %>
+      	<div>
+      	<%= f.text_field :first_name, placeholder: 'First Name' %>
+      	</div>
+      		<div>
+      			<%= f.text_field :last_name, placeholder: 'Last Name' %>
+      		</div>
+      		<div>
+      			<%= f.email_field :email, placeholder: 'Email (username)' %>
+      		</div>
+      		<div>
+      		<%= f.text_field :photo_url, placeholder: "Profile Image URL" %>
+      		</div>
+      		<div>
+      		<%= f.text_field :survey_info, placeholder: "mock survey filler" %>
+      		</div>
+      		<hr>
+      		<h4>Reset Password</h4>
+      		<div>
+      			<%= f.password_field :password, placeholder: 'Password' %>
+      		</div>
+      		<div>
+      			<%= f.submit "Save Changes" %>
+      		</div>
+      	<% end %>
+
+      	    <div class="form-group">
+      	      <%= link_to "Cancel", "javascript:history.go(-1);", class: "col-sm-1" %>
+      	      <%= link_to 'Delete', user_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "col-sm-1 pull-right" %>
+      	    </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
