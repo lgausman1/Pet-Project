@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	require 'pg'
+	require 'HTTParty'
 
 	def new
 		@user = User.new
@@ -21,23 +22,15 @@ class UsersController < ApplicationController
 		render :survey
 	end
 
-	def show
-		# should the sql query and the other methods be here or in the preferences controller?
-			# methods: cat_or_dog, activity_level, young_children, size_of_home, time_with_pet, training_pet
-		# sql query using this info on Pets 
-		# SELECT * FROM pets
-		# 	WHERE species = cat_or_dog
-		# 	WHERE activity_level = activity_level
-		# 	# WHERE age > "5M"
-		# 	# WHERE weight <= size_of_home
-		# 	# WHERE  = time_with_pet
-		# 	# WHERE  = training_pet 
+	def show 
 		@pets = Pet.all
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
 			.where("age > ?", age_cutoff)
 			.where("weight < ?", size_of_home)
+			.where("age > ?", time_with_pet)
 		@user = User.find(params[:id])
+		@preference = Preference.find_by({user_id: params[:id]})
 		render :show	
 
 	end
@@ -51,6 +44,47 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@user.update(user_params)
 		redirect_to user_path(@user)
+	end
+
+	def matches
+		@user = current_user
+		if @user.id != params[:id]
+			redirect_to "/users/#{@user.id}"
+			return
+		end
+		@pets = Pet.all
+			.where(species: cat_or_dog)
+			.where(activity_level: activity_level)
+			.where("age > ?", age_cutoff)
+			.where("weight < ?", size_of_home)
+			.where("age > ?", time_with_pet)
+		@user = User.find(params[:id])
+
+		render :matches
+	end
+
+	def refresh_pets
+		Pet.delete_all
+		@user = current_user
+		response_cats = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+		response_cats["results"]["collection1"].each do |cat|
+
+			Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
+					 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"],
+					 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
+
+			end
+		
+		response_dogs = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+
+		response_dogs["results"]["collection1"].each do |dog|
+			Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
+					 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
+					 personality: dog_personality(dog["personality"]), activity_level: dog["activity_level"], shelter_id: dog["id"]})
+			end
+		
+
+		redirect_to matches_path(@user.id)
 	end
 
 	private
@@ -75,7 +109,7 @@ class UsersController < ApplicationController
 
 		def age_cutoff
 			# do not return pets younger than 5 months
-			if young_children
+			if young_children || training_pet
 				5
 			else 
 				0
@@ -104,25 +138,73 @@ class UsersController < ApplicationController
 		end
 
 		def time_with_pet
-			if @user_preferences.time_with_pet == "not a lot"
-				# return adult dogs or maybe cats
-			elsif @user_preferences.time_with_pet == "decent amount"
-				# return all dogs that are not puppies and cats
-			elsif @user_preferences.time_with_pet == "lots of time"
-				# return all pets
-			end	
+			if cat_or_dog == "dog"
+				if @user_preferences.time_with_pet == "not a lot"
+					# return adult dogs or maybe cats
+					return 24
+				elsif @user_preferences.time_with_pet == "decent amount"
+					# return all dogs that are not puppies and cats
+					return 12
+				elsif @user_preferences.time_with_pet == "lots of time"
+					# return all pets
+					return 0
+				end	
+			end
+			return 0
 		end
 
 		def training_pet
-			if @user_preferences.training_pet == "yes"
-				# return all pets
-			else
-				# return older (one year of more)pets and cats
-			end
+			@user_preferences.training_pet == "no"
 		end
 
 
 
-		
+		def convert_age_to_months(age_string)
+			parse_string_to_number(age_string, 12)
+		end 
+
+		def convert_weight_to_ounces(weight_string)
+			parse_string_to_number(weight_string, 16)
+		end 
+
+		# string is something like "3Y 2M" for age or "5lbs. 6oz." for weight
+		# multiplier is 12 for age and 16 for weight.
+		def parse_string_to_number(string, multiplier)
+			return nil if string.nil?
+			num_string = string.gsub(/[^0-9]/, ' ')
+			# num_array is an array of the component numbers making up the string
+			num_array = num_string.split(' ').map { |s| s.to_i }	
+			if num_array.length == 1
+				return num_array[0]
+			else 
+				return num_array[0] * multiplier + num_array[1]
+			end 
+		end 
+
+		def user_personality
+			if cat_or_dog = "cat"
+				if @user_preferences.user_personality == "I'm very active"
+					return "Poet"
+				elsif @user_preferences.user_personality == "I prefer quiet places"
+					return "Lion hearted"
+				end
+			else
+				return "busy bee"
+			end
+		end
+
+		def dog_personality(data)
+			if data == nil
+				return "zen master"
+			end
+			return data
+		end
+
+		def cat_personality(data)
+			if data == nil
+				return "Cat Next Door"
+			end
+			return data
+		end
 end
 

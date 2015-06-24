@@ -1,3 +1,31 @@
 // Place all the styles related to the pets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pet-name {
+	text-align: center;	
+}
+
+.pet-pic {
+	border-radius: 100%;
+	text-align: center;
+	border: 1px purple;
+	
+}
+
+.pet-attributes {
+	font-size: 150%;
+}
+
+.pet-description-container {
+	float: right;
+	position: relative;
+}
+
+.pet-description {
+	font-size: 150%;
+}
+
+.pet-thumbnail {
+	border-radius: 20%;
+}

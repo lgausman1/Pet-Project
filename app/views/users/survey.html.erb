@@ -1,11 +1,7 @@
-this is a survey
-
 <!-- need model and controller for preferences. -->
 <!-- the preferences will "belong_to" a user -->
 <!-- the controller will handle the creation and edit/updating preferences as well as the logic for  -->
 <!-- determinging which results are shown -->
-
-<!-- might need to change @user to @preferences -->
 <%= form_for @preference do |f|%>
 	<p>What is your prefered animal? cat/dog</p>
 	<%= f.select :cat_or_dog, options_for_select([['cat', 1], ['dog', 2]]) %>
@@ -26,6 +22,11 @@ this is a survey
 
 	<p> Are you willing to spend a lot of time training a pet? yes/somewhat(will take pet to trainging school if dog)/no, it should come trained </p>
 	<%= f.select :training_pet, options_for_select([['yes'], ['no']]) %>
+
+	<p> Which of these best describes you? </p> 
+	<!-- social butterfly+busybee+jock+peewee+zen master/zen master+country dog delicate flower -->
+	<!-- cat next door + lionhearted/poet+cat next door -->
+	<%= f.select :user_personality, options_for_select([["I'm very active"], ["I prefer quiet places"]]) %>
 
 	<!-- need hidded field that contains @user.id -->
 	<div style="display: none">

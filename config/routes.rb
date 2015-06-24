@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
   patch '/preferences/users/:id', to: 'preferences#update', as: "preference"
 
+  get '/users/:id/matches', to: 'users#matches', as: "matches"
 
+  post 'users/:id/matches', to: 'users#refresh_pets'
 
 
 #   Prefix Verb   URI Pattern          Controller#Action
