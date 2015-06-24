@@ -22,8 +22,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		# this is maybe where the survey info will be applied
-		# to what pets will be shown
 		# should the sql query and the other methods be here or in the preferences controller?
 			# methods: cat_or_dog, activity_level, young_children, size_of_home, time_with_pet, training_pet
 		# sql query using this info on Pets 
@@ -34,7 +32,7 @@ class UsersController < ApplicationController
 		# 	# WHERE weight <= size_of_home
 		# 	# WHERE  = time_with_pet
 		# 	# WHERE  = training_pet 
-		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level)
+		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level).where(	)
 		@user = User.find(params[:id])
 		render :show	
 	end
@@ -108,8 +106,32 @@ class UsersController < ApplicationController
 			end
 		end
 
+		def parse_strings_to_nums(num_string)
+			num_string = num_string.gsub(/[^0-9]/, ' ')
+				num_split = num_string.split(" ")
+				num_array = []
+				if num_split.length == 2
+					num_array.push(num_split[0].to_i).push(num_split[1].to_i)
+				elsif num_split.length == 1
+					num_array.push(num_split[0].to_i)
+				end
+				return num_array
+		end
+
 end
 
+
+
+	# def parse_strings_to_nums(num_string)
+		# 	num_string = num_string.gsub(/[^0-9]/, ' ')
+		# 		num_split = num_string.split(" ")
+		# 		if num_split.length == 2
+		# 			num_array.push(num_split[0].to_i).push(num_split[1].to_i)
+		# 			return num_months = num_array[0] * 12 + num_array[1]
+		# 		elsif num_split.length == 1
+		# 			return num_split[0]
+		# 		end
+		# end
 
 
 
