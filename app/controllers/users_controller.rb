@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
 			.where("age > ?", age_cutoff)
+			.where("weight > ?", size_of_home)
 		@user = User.find(params[:id])
 		render :show	
 
