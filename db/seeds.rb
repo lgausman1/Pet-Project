@@ -24,7 +24,7 @@ end
 # multiplier is 12 for age and 16 for weight.
 def parse_string_to_number(string, multiplier)
 	return nil if string.nil?
-	num_string = string.gsub(/[^0-9]/, '')
+	num_string = string.gsub(/[^0-9]/, ' ')
 	# num_array is an array of the component numbers making up the string
 	num_array = num_string.split(' ').map { |s| s.to_i }	
 	if num_array.length == 1

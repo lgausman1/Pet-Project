@@ -11,6 +11,14 @@
 
 	<p>How big is your home? One bedroom or studio(not a lot of space)/2-3 bedroom(more space)/house(a lot of space) </p>
 	<%= f.select :size_of_home, options_for_select([['small apartment', 1], ['big apartment', 2], ["house", 3]]) %>
+
+	<p> How much time can you spend with the animal per day? not a lot/a resonable amount/I can bring my pet(dog) to work
+ </p>
+	<%= f.select :time_with_pet, options_for_select([['not a lot'], ['decent amount'], ["lots of time"]]) %>
+
+	<p> Are you willing to spend a lot of time training a pet? yes/somewhat(will take pet to trainging school if dog)/no, it should come trained </p>
+	<%= f.select :training_pet, options_for_select([['yes'], ['no']]) %>
+	
 	<div style="display: none">
 		<%= f.text_field :user_id, value: "#{@user.id}" %>
 	</div>
