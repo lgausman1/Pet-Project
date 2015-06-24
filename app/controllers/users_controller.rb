@@ -22,8 +22,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		# this is maybe where the survey info will be applied
-		# to what pets will be shown
 		# should the sql query and the other methods be here or in the preferences controller?
 			# methods: cat_or_dog, activity_level, young_children, size_of_home, time_with_pet, training_pet
 		# sql query using this info on Pets 
@@ -34,9 +32,14 @@ class UsersController < ApplicationController
 		# 	# WHERE weight <= size_of_home
 		# 	# WHERE  = time_with_pet
 		# 	# WHERE  = training_pet 
-		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level)
+		@pets = Pet.all
+			.where(species: cat_or_dog)
+			.where(activity_level: activity_level)
+			.where("age > ?", age_cutoff)
+			.where("weight < ?", size_of_home)
 		@user = User.find(params[:id])
 		render :show	
+
 	end
 
 	def edit
@@ -70,23 +73,33 @@ class UsersController < ApplicationController
 			end
 		end
 
+		def age_cutoff
+			# do not return pets younger than 5 months
+			if young_children
+				5
+			else 
+				0
+			end 
+		end 
+
 		def young_children
-			if @user_preferences.young_children == "yes"
-				return 
-				# do not return pets younger than 5 months
-			end
+			@user_preferences.young_children == "yes"
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "small apartment"
-				# return small to medium dogs
-				return 55
-			elsif @user_preferences.size_of_home == "big apartment"
-				# return all but the largest dogs
-				return 100
-			elsif @user_preferences.size_of_home == "house"
-				# return all dogs
-				return 200
+			if cat_or_dog == "dog"
+				if @user_preferences.size_of_home == "1" #was "small apartment"
+					# return small to medium dogs
+					return 880
+				elsif @user_preferences.size_of_home == "2" #was "big apartment"
+					# return all but the largest dogs
+					return 1600
+				elsif @user_preferences.size_of_home == "3" #was "house"
+					# return all dogs
+					return 3200
+				end
+			elsif cat_or_dog == "cat"
+				return 3200
 			end		
 		end
 
@@ -108,18 +121,8 @@ class UsersController < ApplicationController
 			end
 		end
 
+
+
+		
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 

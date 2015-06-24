@@ -2,12 +2,14 @@
 
 <% if current_user == @user %>
 <div class="jumbotron">
-
+z
 <h3>Hello, <%= @user.first_name.capitalize %></h3></div>
 <% else %>
 <div class="jumbotron">
 <h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
+
+<%= link_to "edit", edit_preferences_path(@user.id) %>
 
 <% @pets.each do |pet| %>
 
@@ -15,9 +17,12 @@
 	<img src="<%= pet.thumbnail %>	">
 	<%= pet.breed %> <br>
 	<%= pet.species %> <br>
-	<%= pet.age %> <br>
+	<!-- NOTE the pets age is in months, not years, so that will need to be parsed  -->
+	AGE <%= pet.age %> <br>
 	<%= pet.gender %>
-	<h3> ACTIVITY LEVEL</h3><%= pet.activity_level%>
+	<%= pet.activity_level%>
+	<!-- NOTE the pets weight is in oz, not pounds, so that will need to be parsed  -->
+	<%= pet.weight%>
 <% end %>
 
 

@@ -24,7 +24,7 @@
         <li><a data-method="delete" href="<%= logout_path %>">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
         
         <!-- edit profile -->
-        <li><a href="<%=edit_user_path(current_user.id)%>">Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
+        <li><%= render 'users/edit_user_modal'%>Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
         <% end %>
         </ul>
     </div>

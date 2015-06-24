@@ -10,7 +10,7 @@
 	<%= f.select :young_children, options_for_select([['yes', 1], ['no', 2]]) %>
 
 	<p>How big is your home? One bedroom or studio(not a lot of space)/2-3 bedroom(more space)/house(a lot of space) </p>
-	<%= f.select :size_of_home, options_for_select([['small apartment'], ['big apartment'], ["house"]]) %>
+	<%= f.select :size_of_home, options_for_select([['small apartment', 1], ['big apartment', 2], ["house", 3]]) %>
 	<div style="display: none">
 		<%= f.text_field :user_id, value: "#{@user.id}" %>
 	</div>

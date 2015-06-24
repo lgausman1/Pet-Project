@@ -2,33 +2,8 @@
 <div class="jumbotron">
 <h1>Edit Profile</h1></div>
 <hr>
-<%= bootstrap_form_for @user do |f| %>
-<div>
-<%= f.text_field :first_name, placeholder: 'First Name' %>
-</div>
-	<div>
-		<%= f.text_field :last_name, placeholder: 'Last Name' %>
-	</div>
-	<div>
-		<%= f.email_field :email, placeholder: 'Email (username)' %>
-	</div>
-	<div>
-	<%= f.text_field :photo_url, placeholder: "Profile Image URL" %>
-	</div>
-	<div>
-	<%= f.text_field :survey_info, placeholder: "mock survey filler" %>
-	</div>
-	<hr>
-	<h4>Reset Password</h4>
-	<div>
-		<%= f.password_field :password, placeholder: 'Password' %>
-	</div>
-	<div>
-		<%= f.submit "Save Changes" %>
-	</div>
+
+<% if @user == current_user %>
+<%= render 'edit_user_modal'%>
 <% end %>
 
-    <div class="form-group">
-      <%= link_to "Cancel", "javascript:history.go(-1);", class: "col-sm-1" %>
-      <%= link_to 'Delete', user_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "col-sm-1 pull-right" %>
-    </div>
