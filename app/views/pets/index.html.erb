@@ -1,5 +1,6 @@
-<%= render partial: "layouts/header" %>
-<div class="row">
+<%= render partial: "layouts/navbar2", locals: {user: @user} %>
+
+<div class="row" style="margin-top: 200px;">
 	<div class="col-md-12">
 	<% @pets.each do |pet| %>
 		<% if pet.thumbnail == nil %>
