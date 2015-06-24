@@ -1,11 +1,7 @@
-this is a survey
-
 <!-- need model and controller for preferences. -->
 <!-- the preferences will "belong_to" a user -->
 <!-- the controller will handle the creation and edit/updating preferences as well as the logic for  -->
 <!-- determinging which results are shown -->
-
-<!-- might need to change @user to @preferences -->
 <%= form_for @preference do |f|%>
 	<p>What is your prefered animal? cat/dog</p>
 	<%= f.select :cat_or_dog, options_for_select([['cat', 1], ['dog', 2]]) %>

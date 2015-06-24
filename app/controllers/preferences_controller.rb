@@ -29,7 +29,7 @@ class PreferencesController < ApplicationController
 		def survey_params
 			survey_params = params.require(:preference).permit(:cat_or_dog, :activity_level,
 											 :young_children, :size_of_home, :time_with_pet, :training_pet,
-											 :user_id)
+											 :user_personality, :user_id)
 			# survey_params = params.require(:user).permit(:cat_or_dog, :size_of_home, :young_children,
 												# :activity_level, :time_with_pet, :training_pet, :user_id)
 		end
