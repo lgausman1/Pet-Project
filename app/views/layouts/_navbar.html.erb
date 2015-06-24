@@ -17,7 +17,7 @@
         <li><a href="<%=root_path%>">Home<span style="font-size:16px;" class="pull-right hidden-xs center showopacity glyphicon glyphicon-home"></span></a></li>
 
         <!-- take me to my page -->
-          <% if @user == !nil %>
+          <% if @user %>
         <li><a href="<%=user_path(current_user.id)%>">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 
         <!-- logout button -->
@@ -25,8 +25,8 @@
 
         <!-- edit profile -->
         <li><a href="<%=edit_user_path(current_user.id)%>">Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
-        <% end %>
-        </ul>
+         <% end %>
+         </ul>
     </div>
   </div>
 </nav>
