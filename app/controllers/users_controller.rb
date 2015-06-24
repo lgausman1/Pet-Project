@@ -29,8 +29,6 @@ class UsersController < ApplicationController
 			.where("age > ?", age_cutoff)
 			.where("weight < ?", size_of_home)
 			.where("age > ?", time_with_pet)
-			.where(personality: user_personality)
-			.where(personality: "Cat Next Door")
 		@user = User.find(params[:id])
 		render :show	
 
@@ -48,13 +46,17 @@ class UsersController < ApplicationController
 	end
 
 	def matches
+		@user = current_user
+		if @user.id != params[:id]
+			redirect_to "/users/#{@user.id}"
+			return
+		end
 		@pets = Pet.all
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
 			.where("age > ?", age_cutoff)
 			.where("weight < ?", size_of_home)
 			.where("age > ?", time_with_pet)
-			.where("personality != ?", user_personality)
 		@user = User.find(params[:id])
 
 		render :matches
@@ -63,25 +65,23 @@ class UsersController < ApplicationController
 	def refresh_pets
 		Pet.delete_all
 		@user = current_user
-		if cat_or_dog == "cat"
-			response_cats = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
-			response_cats["results"]["collection1"].each do |cat|
+		response_cats = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+		response_cats["results"]["collection1"].each do |cat|
 
-				Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
-						 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"],
-						 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
+			Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
+					 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"],
+					 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
 
-		end
-			elsif cat_or_dog == "dog"
-			
-			response_dogs = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
-
-			response_dogs["results"]["collection1"].each do |dog|
-				Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
-						 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
-						 personality: dog_personality(dog["personality"]), activity_level: dog["activity_level"], shelter_id: dog["id"]})
 			end
-		end
+		
+		response_dogs = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+
+		response_dogs["results"]["collection1"].each do |dog|
+			Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
+					 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
+					 personality: dog_personality(dog["personality"]), activity_level: dog["activity_level"], shelter_id: dog["id"]})
+			end
+		
 
 		redirect_to matches_path(@user.id)
 	end
@@ -138,7 +138,6 @@ class UsersController < ApplicationController
 
 		def time_with_pet
 			if cat_or_dog == "dog"
-				binding.pry
 				if @user_preferences.time_with_pet == "not a lot"
 					# return adult dogs or maybe cats
 					return 24
@@ -171,7 +170,7 @@ class UsersController < ApplicationController
 		# multiplier is 12 for age and 16 for weight.
 		def parse_string_to_number(string, multiplier)
 			return nil if string.nil?
-			num_string = string.gsub(/[^0-9]/, '')
+			num_string = string.gsub(/[^0-9]/, ' ')
 			# num_array is an array of the component numbers making up the string
 			num_array = num_string.split(' ').map { |s| s.to_i }	
 			if num_array.length == 1
@@ -184,10 +183,8 @@ class UsersController < ApplicationController
 		def user_personality
 			if cat_or_dog = "cat"
 				if @user_preferences.user_personality == "I'm very active"
-					binding.pry
 					return "Poet"
 				elsif @user_preferences.user_personality == "I prefer quiet places"
-					binding.pry
 					return "Lion hearted"
 				end
 			else

@@ -4,17 +4,20 @@ Check out these hot animals in your area!
 <%= link_to "edit", edit_preferences_path(@user.id) %>
 
 <%= button_to "Refresh pets", matches_path %>
+<div class="row" style="margin-top: 200px;">
+	<div class="col-md-12">
+	<% @pets.each do |pet| %>
+		<% if pet.thumbnail == nil %>
+			<div style="display: none;"><%= pet.species %></div>
+		
+		<% else %>
+			<div class="col-md-3 text-center">
+				<img class="matches" src="<%= pet.thumbnail %>" width="220" height="220">
+				<p><%= link_to pet.name, pet.link %> </p>
+			</div>
+		
+		<% end %>
+	<% end %>
 
-<% @pets.each do |pet| %>
-
-	<%= pet.name %> <br>
-	<img src="<%= pet.thumbnail %>	">
-	<%= pet.breed %> <br>
-	<%= pet.species %> <br>
-	<!-- NOTE the pets age is in months, not years, so that will need to be parsed  -->
-	AGE <%= pet.age %> <br>
-	<%= pet.gender %>
-	<%= pet.activity_level%>
-	<!-- NOTE the pets weight is in oz, not pounds, so that will need to be parsed  -->
-	<%= pet.weight%>
-<% end %> 
+	</div>
+</div>

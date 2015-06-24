@@ -23,6 +23,11 @@
 	<p> Are you willing to spend a lot of time training a pet? yes/somewhat(will take pet to trainging school if dog)/no, it should come trained </p>
 	<%= f.select :training_pet, options_for_select([['yes'], ['no']]) %>
 
+	<p> Which of these best describes you? </p> 
+	<!-- social butterfly+busybee+jock+peewee+zen master/zen master+country dog delicate flower -->
+	<!-- cat next door + lionhearted/poet+cat next door -->
+	<%= f.select :user_personality, options_for_select([["I'm very active"], ["I prefer quiet places"]]) %>
+
 	<!-- need hidded field that contains @user.id -->
 	<div style="display: none">
 		<%= f.text_field :user_id, value: "#{@user.id}" %>

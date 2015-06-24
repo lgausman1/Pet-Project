@@ -21,7 +21,7 @@ class PreferencesController < ApplicationController
 	def update
 		@preference = Preference.find_by({user_id: current_user.id})
 		@preference.update(survey_params)
-		redirect_to user_path(current_user)
+		redirect_to "/users/#{@current_user.id}/matches"
 	end
 
 	private
