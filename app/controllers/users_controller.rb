@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 			.where("age > ?", age_cutoff)
 			.where("weight < ?", size_of_home)
 			.where("age > ?", time_with_pet)
+			.where("personality != ?", user_personality)
 		@user = User.find(params[:id])
 		render :show	
 
@@ -182,10 +183,13 @@ class UsersController < ApplicationController
 		def user_personality
 			if cat_or_dog = "cat"
 				if @user_preferences.user_personality == "I'm very active"
+					binding.pry
 					return "poet"
 				elsif @user_preferences.user_personality == "I prefer quiet places"
 					return "lionhearted"
 				end
+			else
+				return "busy bee"
 			end
 		end
 
