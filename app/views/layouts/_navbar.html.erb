@@ -17,16 +17,16 @@
         <li><a href="<%=root_path%>">Home<span style="font-size:16px;" class="pull-right hidden-xs center showopacity glyphicon glyphicon-home"></span></a></li>
 
         <!-- take me to my page -->
-          <% if @user %>
+          <% if current_user %>
         <li><a href="<%=user_path(current_user.id)%>">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 
         <!-- logout button -->
         <li><a data-method="delete" href="<%= logout_path %>">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
 
         <!-- edit profile -->
-        <li><a href="<%=edit_user_path(current_user.id)%>">Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
-         <% end %>
-         </ul>
+        <li><a>Settings<span style="font-size:16px;" data-target="#myModal" data-toggle="modal" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
+        <% end %>
+        </ul>
     </div>
   </div>
 </nav>

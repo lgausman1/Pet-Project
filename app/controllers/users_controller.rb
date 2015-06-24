@@ -11,7 +11,8 @@ class UsersController < ApplicationController
 		if @user
 			redirect_to "/preferences/users/#{@user.id}"
 		else
-			redirect_to register_path
+			flash[:notice] = @user.errors.full_messages.to_sentence
+			redirect_to root_path
 		end
 	end
 
@@ -22,21 +23,24 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		# this is maybe where the survey info will be applied
-		# to what pets will be shown
 		# should the sql query and the other methods be here or in the preferences controller?
 			# methods: cat_or_dog, activity_level, young_children, size_of_home, time_with_pet, training_pet
-		# sql query using this info on Pets 
+		# sql query using this info on Pets
 		# SELECT * FROM pets
 		# 	WHERE species = cat_or_dog
 		# 	WHERE activity_level = activity_level
 		# 	# WHERE age > "5M"
 		# 	# WHERE weight <= size_of_home
 		# 	# WHERE  = time_with_pet
-		# 	# WHERE  = training_pet 
-		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level)
+		# 	# WHERE  = training_pet
+		@pets = Pet.all
+			.where(species: cat_or_dog)
+			.where(activity_level: activity_level)
+			.where("age > ?", age_cutoff)
+			.where("weight > ?", size_of_home)
 		@user = User.find(params[:id])
-		render :show	
+		render :show
+
 	end
 
 	def edit
@@ -70,11 +74,17 @@ class UsersController < ApplicationController
 			end
 		end
 
-		def young_children
-			if @user_preferences.young_children == "yes"
-				return 
-				# do not return pets younger than 5 months
+		def age_cutoff
+			# do not return pets younger than 5 months
+			if young_children
+				5
+			else
+				0
 			end
+		end
+
+		def young_children
+			@user_preferences.young_children == "yes"
 		end
 
 		def size_of_home
@@ -87,7 +97,7 @@ class UsersController < ApplicationController
 			elsif @user_preferences.size_of_home == "house"
 				# return all dogs
 				return 200
-			end		
+			end
 		end
 
 		def time_with_pet
@@ -97,7 +107,7 @@ class UsersController < ApplicationController
 				# return all dogs that are not puppies and cats
 			elsif @user_preferences.time_with_pet == "lots of time"
 				# return all pets
-			end	
+			end
 		end
 
 		def training_pet
@@ -108,18 +118,7 @@ class UsersController < ApplicationController
 			end
 		end
 
+
+
+
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
