@@ -32,7 +32,10 @@ class UsersController < ApplicationController
 		# 	# WHERE weight <= size_of_home
 		# 	# WHERE  = time_with_pet
 		# 	# WHERE  = training_pet 
-		@pets = Pet.all.where(species: cat_or_dog).where(activity_level: activity_level).where("age > ?", 5)
+		@pets = Pet.all
+			.where(species: cat_or_dog)
+			.where(activity_level: activity_level)
+			.where("age > ?", age_cutoff)
 		@user = User.find(params[:id])
 		render :show	
 
@@ -69,11 +72,17 @@ class UsersController < ApplicationController
 			end
 		end
 
+		def age_cutoff
+			# do not return pets younger than 5 months
+			if young_children
+				5
+			else 
+				0
+			end 
+		end 
+
 		def young_children
-			if @user_preferences.young_children == "yes"
-				return 
-				# do not return pets younger than 5 months
-			end
+			@user_preferences.young_children == "yes"
 		end
 
 		def size_of_home
