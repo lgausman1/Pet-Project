@@ -9,6 +9,8 @@ z
 <h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
 
+<%= link_to "edit", edit_preferences_path(@user.id) %>
+
 <% @pets.each do |pet| %>
 
 	<%= pet.name %> <br>

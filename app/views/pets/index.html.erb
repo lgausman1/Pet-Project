@@ -8,7 +8,7 @@
 	<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 	<img src="<%= pet.thumbnail %>", class="img-responsive img-thumbnail">
 	<% end %>
-	<%= link_to pet.name, pet.link %> 
+	<%= link_to pet.name, pet_path(pet.id) %> 
 	</li>
 	<br>
 	</ul>
