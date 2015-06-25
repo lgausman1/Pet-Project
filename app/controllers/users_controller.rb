@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 			redirect_to "/users/#{@user.id}"
 			return
 		end
+
 		@pets = Pet.all
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
@@ -87,10 +88,10 @@ class UsersController < ApplicationController
 		end
 
 		def cat_or_dog
-		# should determine which set of data to sort through
-		# TODO: need to add preferences to the user
-		@user_preferences = Preference.find_by({user_id: current_user.id})
-		return @user_preferences.cat_or_dog
+			# should determine which set of data to sort through
+			# TODO: need to add preferences to the user
+			@user_preferences = Preference.find_by({user_id: current_user.id})
+			return @user_preferences.cat_or_dog
 		end
 
 		def activity_level
@@ -115,13 +116,13 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "1"
+			if @user_preferences.size_of_home == "small apartment"
 				# return small to medium dogs
 				return 880
-			elsif @user_preferences.size_of_home == "2"
+			elsif @user_preferences.size_of_home == "big apartment"
 				# return all but the largest dogs
 				return 1600
-			elsif @user_preferences.size_of_home == "3"
+			elsif @user_preferences.size_of_home == "house"
 				# return all dogs
 				return 3200
 			end

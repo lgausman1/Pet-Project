@@ -4,7 +4,6 @@ class PreferencesController < ApplicationController
 		@preference = Preference.create(survey_params)
 		user_id = current_user.id
 		redirect_to "/users/#{user_id}/matches"
-
 	end
 
 	def survey
@@ -15,10 +14,12 @@ class PreferencesController < ApplicationController
 
 	def edit
 		@user = User.find(current_user)
+		@preference = Preference.find_by({user_id: params[:id]})
 		render :edit
 	end
 
 	def update
+		@preference = Preference.find_by({user_id: current_user.id})
 		@preference.update(survey_params)
 		redirect_to "/users/#{@current_user.id}/matches"
 	end
