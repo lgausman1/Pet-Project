@@ -75,6 +75,11 @@
 			width: 100%;
 			margin-left: 0px;
 		}
+		
+		.container{
+		display: block;
+
+		}
 
 		/*Center Icons*/
 		nav.sidebar a, li{
@@ -199,6 +204,10 @@
 		color: #ffffff;
 		width: 100%;
 		padding: 3em;
+		   height: 150px;  
+		   position: fixed; 
+		   bottom: 0px; 
+		   left: 0px; 
 	}
 
 /********* navbar2 *********/
