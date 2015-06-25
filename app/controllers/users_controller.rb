@@ -90,10 +90,9 @@ class UsersController < ApplicationController
 
 	def delete
 		@user = current_user
-		pet_id = params[:id]
-		@favorite = UserPet.all.where(user_id: @user.id).where(pet_id: pet_id)
-		@favorite.delete(1)
-		redirect_to "/users/#{current_user.id}"
+		@pet = Pet.find(params[:id])
+		@user.pets.delete(@pet)
+		redirect_to "/users/#{@user.id}"
 	end
 
 	private
