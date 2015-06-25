@@ -1,5 +1,4 @@
-Check out these hot animals in your area!
-<%= @user.first_name %> <br>
+<h1>Hey <%=@user.first_name.upcase%>! Check out these hot animals in your area!</h1> <br>
 
 <%= link_to "edit", edit_preferences_path(@user.id) %>
 
