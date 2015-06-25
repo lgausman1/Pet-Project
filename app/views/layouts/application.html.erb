@@ -28,6 +28,10 @@
   <!-- modal -->
 <% if @user %>
   <%= render 'users/edit_user_modal'%>
+  
+<% end %>
+<% if @user == nil %>
+  <%= render 'welcome_modal'%>
 <% end %>
 </body>
 </html>
