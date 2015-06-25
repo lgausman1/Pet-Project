@@ -39,6 +39,10 @@ Rails.application.routes.draw do
 
   get '/contact', to: 'welcome#contact'
 
+  post '/users/favorites/:id', to: 'users#favorites'
+
+  post '/users/delete/:id', to: 'users#delete'
+
 
 #   Prefix Verb   URI Pattern          Controller#Action
 #     root GET    /                    welcome#index

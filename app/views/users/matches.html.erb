@@ -13,6 +13,9 @@
 			<div class="col-md-3 text-center">
 				<%= link_to image_tag(pet.thumbnail), pet_path(pet.id), class: "img img-thumbnail" %>
 				<p><%= link_to pet.name, pet.link %> </p>
+				<% if UserPet.all.where(user_id: @user.id).where(pet_id: pet.id) == [] %>
+					<%= button_to "Favortite this pet!", "/users/favorites/#{pet.id}" %> 
+				<% end %>
 			</div>
 		
 		<% end %>
