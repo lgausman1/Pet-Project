@@ -5,7 +5,7 @@ class ChangePetAgeToInteger < ActiveRecord::Migration
   end
   
   def self.up
-    alter_column :pets, :age, :integer, { "1" => true, "else" => false }, true
+    alter_column(:pets, :age, :integer, true)
   end
  
   def self.down

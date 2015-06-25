@@ -1,5 +1,5 @@
 # used to alter columns in postgresql
-# yes
+# yes plz
 module AlterColumn
   def alter_column(table_name, column_name, new_type, mapping, default = nil)
     drop_default = %Q{ALTER TABLE #{table_name} ALTER COLUMN #{column_name} DROP DEFAULT;}
