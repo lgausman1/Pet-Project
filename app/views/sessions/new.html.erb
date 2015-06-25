@@ -1,11 +1,27 @@
-Sign In
+<h1 class="col-md-12">Sign In</h1>
 
-<%= form_for @user, url: "/sessions", method: "post" do |f| %>
-  <div>
-    <%= f.text_field :email, placeholder: "Email" %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-danger col-md-12" role="alert">
+    <%= flash[:notice] %>
   </div>
-  <div>
-    <%= f.password_field :password, placeholder: "Password" %>
+<% end %>
+
+<%= form_for @user, url: "/sessions", method: "post", html: { class: "form-group"} do |f| %>
+
+
+  <div class="form-group col-md-6 " >
+      <label>Email</label>
+      <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
   </div>
-  <%= f.submit "Sign In" %>
-<% end %> 
+
+  <div class="form-group col-md-6">
+    <label>Password</label>
+    <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= f.submit "sign in", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

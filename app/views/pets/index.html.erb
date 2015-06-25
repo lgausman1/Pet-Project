@@ -7,7 +7,8 @@
 		
 		<% else %>
 			<div class="col-md-3 text-center">
-				<img class="pet-thumbnail" src="<%= pet.thumbnail %>" width="220" height="220">
+				<%= link_to image_tag(pet.thumbnail), pet_path(pet.id), class: "img img-thumbnail" %>
+
 				<p><%= link_to pet.name, pet_path(pet.id) %> </p>
 			</div>
 		

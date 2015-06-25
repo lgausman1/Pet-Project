@@ -10,7 +10,7 @@
         <h4 class="modal-title">Change Pet Preferences</h4>
       </div>
       <div class="modal-body">
-        
+
 <%= form_for @preference do |f|%>
 	<p>What is your prefered animal? cat/dog</p>
 	<%= f.select :cat_or_dog, options_for_select([['cat'], ['dog']]) %>

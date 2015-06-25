@@ -9,10 +9,11 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(user_params)
 		login(@user)
-		if @user
+		if @user == !nil
 			redirect_to "/preferences/users/#{@user.id}"
 		else
-			redirect_to register_path
+			flash[:notice] = @user.errors.full_messages.to_sentence
+			redirect_to root_path
 		end
 	end
 
@@ -22,21 +23,16 @@ class UsersController < ApplicationController
 		render :survey
 	end
 
-	def show 
-		@pets = Pet.all
-			.where(species: cat_or_dog)
-			.where(activity_level: activity_level)
-			.where("age > ?", age_cutoff)
-			.where("weight < ?", size_of_home)
-			.where("age > ?", time_with_pet)
+	def show
 		@user = User.find(params[:id])
 		@preference = Preference.find_by({user_id: params[:id]})
-		render :show	
+		render :show
 
 	end
 
 	def edit
 		@user = User.find(params[:id])
+		@preference = Preference.find_by({user_id: @user.id})
 		render :edit
 	end
 
@@ -48,7 +44,7 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
-		if @user.id != params[:id]
+		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
 		end
@@ -74,7 +70,7 @@ class UsersController < ApplicationController
 					 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
 
 			end
-		
+
 		response_dogs = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
 
 		response_dogs["results"]["collection1"].each do |dog|
@@ -82,7 +78,7 @@ class UsersController < ApplicationController
 					 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
 					 personality: dog_personality(dog["personality"]), activity_level: dog["activity_level"], shelter_id: dog["id"]})
 			end
-		
+
 
 		redirect_to matches_path(@user.id)
 	end
@@ -111,30 +107,26 @@ class UsersController < ApplicationController
 			# do not return pets younger than 5 months
 			if young_children || training_pet
 				5
-			else 
+			else
 				0
-			end 
-		end 
+			end
+		end
 
 		def young_children
 			@user_preferences.young_children == "yes"
 		end
 
 		def size_of_home
-			if cat_or_dog == "dog"
-				if @user_preferences.size_of_home == "1" #was "small apartment"
-					# return small to medium dogs
-					return 880
-				elsif @user_preferences.size_of_home == "2" #was "big apartment"
-					# return all but the largest dogs
-					return 1600
-				elsif @user_preferences.size_of_home == "3" #was "house"
-					# return all dogs
-					return 3200
-				end
-			elsif cat_or_dog == "cat"
-				return 3200
-			end		
+			if @user_preferences.size_of_home == "small apartment"
+				# return small to medium dogs
+				return 55
+			elsif @user_preferences.size_of_home == "big apartment"
+				# return all but the largest dogs
+				return 100
+			elsif @user_preferences.size_of_home == "house"
+				# return all dogs
+				return 200
+			end
 		end
 
 		def time_with_pet
@@ -148,7 +140,7 @@ class UsersController < ApplicationController
 				elsif @user_preferences.time_with_pet == "lots of time"
 					# return all pets
 					return 0
-				end	
+				end
 			end
 			return 0
 		end
@@ -161,11 +153,11 @@ class UsersController < ApplicationController
 
 		def convert_age_to_months(age_string)
 			parse_string_to_number(age_string, 12)
-		end 
+		end
 
 		def convert_weight_to_ounces(weight_string)
 			parse_string_to_number(weight_string, 16)
-		end 
+		end
 
 		# string is something like "3Y 2M" for age or "5lbs. 6oz." for weight
 		# multiplier is 12 for age and 16 for weight.
@@ -173,16 +165,16 @@ class UsersController < ApplicationController
 			return nil if string.nil?
 			num_string = string.gsub(/[^0-9]/, ' ')
 			# num_array is an array of the component numbers making up the string
-			num_array = num_string.split(' ').map { |s| s.to_i }	
+			num_array = num_string.split(' ').map { |s| s.to_i }
 			if num_array.length == 1
 				return num_array[0]
-			else 
+			else
 				return num_array[0] * multiplier + num_array[1]
-			end 
-		end 
+			end
+		end
 
 		def user_personality
-			if cat_or_dog = "cat"
+			if cat_or_dog == "cat"
 				if @user_preferences.user_personality == "I'm very active"
 					return "Poet"
 				elsif @user_preferences.user_personality == "I prefer quiet places"
@@ -207,4 +199,3 @@ class UsersController < ApplicationController
 			return data
 		end
 end
-
