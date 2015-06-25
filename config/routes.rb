@@ -35,6 +35,10 @@ Rails.application.routes.draw do
 
   post 'users/:id/matches', to: 'users#refresh_pets'
 
+  get '/about', to: 'welcome#about'
+
+  get '/contact', to: 'welcome#contact'
+
 
 #   Prefix Verb   URI Pattern          Controller#Action
 #     root GET    /                    welcome#index

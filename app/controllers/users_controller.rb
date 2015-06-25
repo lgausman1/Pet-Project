@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-	require 'pg'
-	require 'HTTParty'
-
+	
 	def new
 		@user = User.new
 	end
