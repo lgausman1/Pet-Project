@@ -27,7 +27,11 @@
   <!-- modal -->
 <% if @user %>
   <%= render 'users/edit_user_modal'%>
-  <%= render partial: 'users/edit_prefs_modal'%>
+  <%= render 'users/edit_prefs_modal'%>
+<% end %>
+
+<% if @user == nil %>
+  <%= render 'welcome/welcome_modal'%>
 <% end %>
 
 </body>

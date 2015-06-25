@@ -17,6 +17,9 @@ class PetsController < ApplicationController
 
 	def show
 		@pet = Pet.find(params[:id])
+		if current_user
+			@user = current_user
+		end
 		render :show
 	end
 

@@ -1,6 +1,10 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-2">
 <%= form_for @preference do |f|%>
+
 	<p>What is your prefered pet? Cat or dog? </p>
 	<%= f.select :cat_or_dog, options_for_select([['cat'], ['dog']]) %>
+
 
 	<p>What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)</p>
 	<%= f.select :activity_level, options_for_select([['High'], ['Medium'], ["Low"]]) %>
@@ -27,3 +31,5 @@
 
 	<%= f.submit "Submit" %>
 <% end %>
+	</div>
+</div>
