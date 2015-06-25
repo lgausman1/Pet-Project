@@ -81,20 +81,6 @@ class UsersController < ApplicationController
 		redirect_to matches_path(@user.id)
 	end
 
-	def favorites
-		@user = current_user
-		@pet = Pet.find(params[:id])
-		@user.pets.push(@pet)
-		redirect_to "/users/#{@user.id}/matches"
-	end
-
-	def delete
-		@user = current_user
-		@pet = Pet.find(params[:id])
-		@user.pets.delete(@pet)
-		redirect_to "/users/#{@user.id}"
-	end
-
 	private
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :photo_url, :survey_info)
