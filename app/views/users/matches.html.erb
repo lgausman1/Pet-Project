@@ -1,9 +1,8 @@
 <h1>Hey <%=@user.first_name.capitalize%>! Check out these hot animals in your area!</h1> <br>
-<%= render 'users/edit_prefs_modal'%>
+<%= render 'users/edit_prefs_modal'%> <br>
 
-
-<%= button_to "Refresh pets", matches_path %>
 <div class="row" style="margin-top: 80px;">
+	<%= button_to "Refresh pets", matches_path, class: "refresh-button btn btn btn-success" %>
 	<div class="col-md-12">
 	<% @pets.each do |pet| %>
 		<% if pet.thumbnail == nil %>
@@ -12,7 +11,7 @@
 		<% else %>
 			<div class="col-md-3 text-center">
 				<%= link_to image_tag(pet.thumbnail), pet_path(pet.id), class: "img img-thumbnail" %>
-				<p><%= link_to pet.name, pet.link %> </p>
+				<p><%= pet.name %> </p>
 				<% if UserPet.all.where(user_id: @user.id).where(pet_id: pet.id) == [] %>
 					<%= link_to "Favorite this pet!", "/user_pets/#{pet.id}", method: :post, class: "fave-button btn btn-success" %> 
 				<% end %>

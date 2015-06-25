@@ -55,7 +55,6 @@ class UsersController < ApplicationController
 			.where("age > ?", time_with_pet)
 		@user = User.find(params[:id])	
 
-		binding.pry
 		render :matches
 	end
 
@@ -117,7 +116,6 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			binding.pry
 			if @user_preferences.size_of_home == "small apartment"
 				# return small to medium dogs
 				return 880
