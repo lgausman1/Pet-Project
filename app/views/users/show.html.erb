@@ -3,42 +3,36 @@
 
 
 <% if current_user == @user %>
+
 <div class="jumbotron">
-z
+
 <h3>Hello, <%= @user.first_name.capitalize %></h3></div>
+
 <% else %>
-<div class="jumbotron">
-<h3><%= @user.first_name.capitalize %>'s page</h3></div>
+	<div class="jumbotron">
+	<h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
 
-<%= link_to "edit", edit_preferences_path(@user.id) %>
+<% if current_user == @user %>
+<!-- non-modal edit prefs -->
 
-<% @pets.each do |pet| %>
-
-	<%= pet.name %> <br>
-	<img src="<%= pet.thumbnail %>	">
-	<%= pet.breed %> <br>
-	<%= pet.species %> <br>
-	<!-- NOTE the pets age is in months, not years, so that will need to be parsed  -->
-	AGE <%= pet.age %> <br>
-	<%= pet.gender %>
-	<%= pet.activity_level%>
-	<!-- NOTE the pets weight is in oz, not pounds, so that will need to be parsed  -->
-	<%= pet.weight%>
-<% end %>
-
-
-
-
-
-
-
-
-
-<% @user %>'s pet survey
+<!-- modalized -->
+	<%= render 'users/edit_prefs_modal'%>
+<%end%>
 <br>
-<%= @user.survey_info %>
+
 <hr>
+
+
+<!-- took that part out because I'm not sure we'll be using it -->
+
+
+
+
+
+
+
+
 
 
 <!-- logout button -->

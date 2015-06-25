@@ -1,7 +1,11 @@
 class PetsController < ApplicationController
 	def index
 		@pets = Pet.all
+		if current_user
+			@user = current_user
+		end
 		render :index
+
 	end
 
 	def create
@@ -16,4 +20,3 @@ class PetsController < ApplicationController
 	end
 
 end
-

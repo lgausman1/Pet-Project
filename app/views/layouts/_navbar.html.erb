@@ -17,15 +17,15 @@
         <li><a href="<%=root_path%>">Home<span style="font-size:16px;" class="pull-right hidden-xs center showopacity glyphicon glyphicon-home"></span></a></li>
 
         <!-- take me to my page -->
-          <% if current_user %>
-        <li><a href="<%=user_path(current_user.id)%>">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+          <% if @user %>
+            <li><a href="<%=user_path(current_user.id)%>">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 
-        <!-- logout button -->
-        <li><a data-method="delete" href="<%= logout_path %>">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
+            <!-- logout button -->
+            <li><a data-method="delete" href="<%= logout_path %>">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
 
-        <!-- edit profile -->
-        <li><%= render 'users/edit_user_modal'%>Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
-        <% end %>
+            <!-- edit profile -->
+            <li><%= render 'users/edit_user_modal'%>Settings<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a></li>
+        <% end %> 
         </ul>
     </div>
   </div>
