@@ -42,6 +42,8 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
+		@preference = Preference.find_by({user_id: @user.id})
+		
 		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
