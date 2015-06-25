@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(user_params)
 		login(@user)
-		if @user == !nil
+		if @user != nil
 			redirect_to "/preferences/users/#{@user.id}"
 		else
 			flash[:notice] = @user.errors.full_messages.to_sentence

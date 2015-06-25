@@ -2,7 +2,6 @@ class PreferencesController < ApplicationController
 
 	def create
 		@preference = Preference.create(survey_params)
-		binding.pry
 		user_id = current_user.id
 		redirect_to "/users/#{user_id}"
 	end
