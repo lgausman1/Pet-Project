@@ -35,6 +35,8 @@ gem 'httparty'
 
 gem 'pg'
 
+gem 'unicorn-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -55,5 +57,5 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
-gem 'puma', group: :production
+
 ruby "2.2.1"

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
-	require 'pg'
-	require 'HTTParty'
-
+	
 	def new
 		@user = User.new
 	end
@@ -9,7 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.create(user_params)
 		login(@user)
-		if @user == !nil
+		if @user != nil
 			redirect_to "/preferences/users/#{@user.id}"
 		else
 			flash[:notice] = @user.errors.full_messages.to_sentence
@@ -44,6 +42,8 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
+		@preference = Preference.find_by({user_id: @user.id})
+		
 		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
@@ -117,15 +117,15 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "small apartment"
+			if @user_preferences.size_of_home == "1"
 				# return small to medium dogs
-				return 55
-			elsif @user_preferences.size_of_home == "big apartment"
+				return 880
+			elsif @user_preferences.size_of_home == "2"
 				# return all but the largest dogs
-				return 100
-			elsif @user_preferences.size_of_home == "house"
+				return 1600
+			elsif @user_preferences.size_of_home == "3"
 				# return all dogs
-				return 200
+				return 3200
 			end
 		end
 

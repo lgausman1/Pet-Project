@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 	validates_uniqueness_of :email
-	
+
+	has_many :user_pets
+	has_many :pets, :through => :user_pets
+
 	has_secure_password
 
 	validates :password,
