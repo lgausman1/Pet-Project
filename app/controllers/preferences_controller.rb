@@ -4,7 +4,7 @@ class PreferencesController < ApplicationController
 		@preference = Preference.create(survey_params)
 		user_id = current_user.id
 		binding.pry
-		redirect_to "/users/#{user_id}"
+		redirect_to "/users/#{user_id}/matches"
 	end
 
 	def survey
@@ -28,8 +28,8 @@ class PreferencesController < ApplicationController
 	private
 		def survey_params
 			survey_params = params.require(:preference).permit(:cat_or_dog, :activity_level,
-											 							:young_children, :size_of_home, :time_with_pet,
-											  						:training_pet, :user_id)
+											 				:young_children, :size_of_home, :time_with_pet,
+											  				:training_pet, :user_id)
 		end
 
 
