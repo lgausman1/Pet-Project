@@ -1,5 +1,7 @@
-<h1 class="pet-name"><%= @pet.name %></h1> <br>
-<div class="pet-pic"><img class="pet-pic" src="<%= @pet.thumbnail %>", class="img-rounded"></div>
+
+<h1 class="pet-name"><strong><%= @pet.name %></strong></h1> <br>
+<div class="pet-pic-container"><img class="pet-pic" src="<%= @pet.thumbnail %>", class="img-rounded"></div>
+
 <% years = @pet.age / 12 %>
 <% months = @pet.age - (years * 12) %>
 <% age = "#{years} years and #{months} months old" %>

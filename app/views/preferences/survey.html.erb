@@ -1,14 +1,14 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-2">
 <%= form_for @preference do |f|%>
-	<div class="form-group">
-	<p>What is your prefered animal? cat/dog</p>
-	<%= f.select :cat_or_dog,  options_for_select([['cat'], ['dog']]), class: "form-control" %></div>
-	
-	<div class="form-group">
+
+	<p>What is your prefered pet? Cat or dog? </p>
+	<%= f.select :cat_or_dog, options_for_select([['cat'], ['dog']]) %>
+
+
 	<p>What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)</p>
 	<%= f.select :activity_level, options_for_select([['High'], ['Medium'], ["Low"]]) %>
-	</div>
+
 	<!-- need hidded field that contains @user.id -->
 	<p> Do you have young children(less than 5 years old)?</p>
 	<%= f.select :young_children, options_for_select([['yes', 1], ['no', 2]]) %>
@@ -16,7 +16,7 @@
 	<p>How big is your home? One bedroom or studio(not a lot of space)/2-3 bedroom(more space)/house(a lot of space) </p>
 	<%= f.select :size_of_home, options_for_select([['small apartment'], ['big apartment'], ["house"]]) %>
 
-	<p> How much time can you spend with the animal per day? not a lot/a resonable amount/I can bring my pet(dog) to work
+	<p> How much time would you be able to spend with your pet each day? not a lot/a resonable amount/I can bring my pet(dog) to work
  </p>
 	<%= f.select :time_with_pet, options_for_select([['not a lot'], ['decent amount'], ["lots of time"]]) %>
 
