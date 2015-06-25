@@ -23,9 +23,9 @@
 
               <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_user_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Profile</a></li>
 
-              <li class="text-center" style="background-color: #70bf40;"><span class="glyphicon glyphicon-cog white"></span><a href="<%=edit_user_path(current_user.id)%>" class="white">Settings</a></li>
+            <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_prefs_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Profile</a></li>
 
-              <li class="text-center" style="background-color: #70bf40;"><span class="glyphicon glyphicon-log-out white"></span><a data-method="delete" href="<%= logout_path %>" class="white">Logout</a></li>
+              <li class="text-center" style="background-color: #70bf40;"><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span>Logout</a></li>
 
             </ul>
           </li>
