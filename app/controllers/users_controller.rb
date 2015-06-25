@@ -23,12 +23,6 @@ class UsersController < ApplicationController
 	end
 
 	def show 
-		@pets = Pet.all
-			.where(species: cat_or_dog)
-			.where(activity_level: activity_level)
-			.where("age > ?", age_cutoff)
-			.where("weight < ?", size_of_home)
-			.where("age > ?", time_with_pet)
 		@user = User.find(params[:id])
 		@preference = Preference.find_by({user_id: params[:id]})
 		render :show	
@@ -37,6 +31,7 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		@preference = Preference.find_by({user_id: @user.id})
 		render :edit
 	end
 
@@ -48,7 +43,7 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
-		if @user.id != params[:id]
+		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
 		end

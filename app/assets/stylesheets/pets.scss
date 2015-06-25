@@ -26,6 +26,13 @@
 	font-size: 150%;
 }
 
-.pet-thumbnail {
-	border-radius: 20%;
+.img-thumbnail {
+	border: none !important;
+	box-shadow: none !important;
+	img {
+		border-radius: 20%;
+		width: 220px;
+		height: 220px;
+	}
+	
 }
