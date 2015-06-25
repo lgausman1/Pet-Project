@@ -14,7 +14,7 @@ Link to heroku:
 
 ## APIs Used
 
-Kimono API for gather date from SPCA website.
+Kimono API for gather data from SPCA website.
 
 ## Tools Used
 
