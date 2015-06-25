@@ -26,12 +26,14 @@
   <%= render partial: "layouts/footer" %>
   <!-- modal -->
 <% if @user %>
-  <%= render 'users/edit_user_modal'%>
-  <%= render 'users/edit_prefs_modal'%>
+
+  <%= render 'users/edit_user_modal', locals: {user: @user, preference: @preference} %>
+  <%= render 'users/edit_prefs_modal', locals: {user: @user, preference: @preference} %>
 <% end %>
 
 <% if @user == nil %>
   <%= render 'welcome/welcome_modal'%>
+
 <% end %>
 
 </body>

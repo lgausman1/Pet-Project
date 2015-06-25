@@ -1,12 +1,11 @@
 class PetsController < ApplicationController
 
 	def index
-		@pets = Pet.all
 		if current_user
 			@user = current_user
 		end
-		render :index
-
+		@preference = Preference.find_by({user_id: params[:id]})
+		@pets = Pet.all
 	end
 
 	def create
