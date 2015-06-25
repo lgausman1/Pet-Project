@@ -10,7 +10,7 @@
         <h4 class="modal-title">Edit Profile</h4>
       </div>
       <div class="modal-body">
-        
+
       	<%= bootstrap_form_for @user do |f| %>
       	<div>
       	<%= f.text_field :first_name, placeholder: 'First Name' %>
@@ -39,8 +39,6 @@
 
       	    <div class="form-group">
       	      <%= link_to "Cancel", "javascript:history.go(-1);", class: "col-sm-1" %>
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
