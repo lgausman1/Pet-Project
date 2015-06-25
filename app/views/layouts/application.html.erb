@@ -19,15 +19,15 @@
 </head>
 <body>
 
-  <%= render partial: "layouts/navbar", locals: {user: @user} %>
-
-
+<%= render partial: "layouts/navbar2", locals: {user: @user} %>
 
   <div class="container">
     <%= yield %>
   </div>
-
   <%= render partial: "layouts/footer" %>
-
+  <!-- modal -->
+<% if @user %>
+  <%= render 'users/edit_user_modal'%>
+<% end %>
 </body>
 </html>
