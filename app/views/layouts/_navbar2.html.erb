@@ -1,63 +1,6 @@
-<style>
-
-.navbar-logo {
-  float: left;
-}
-
-.nav-block {
-  height: 80px;
-  width: 80px;
-  float:left;
-  margin-left: 20px;
-  display: inline-block;
-  padding: 15px;
-}
-.navbar-right {
-  list-style-type: none;
-  margin-right: 20px;
-  margin-top: 20px;
-}
-.white {
-  color: #ffffff;
-}
-
-.navbar-right a:hover, a:active, a:visited, a:link {
-  color: #ffffff;
-}
-
-.icon-block {
-  display: block;
-  margin-bottom: 5px;
-}
-.white-bck {
-  background-color: #ffffff;
-}
-
-.top-top {
-  background-color: #dd6a0f;
-  padding: 0.4em;
-  border-bottom: 8px solid #ffffff;
-
-}
-
-.dropdown-menu>li>a {
-  display: block;
-  padding: 3px 20px;
-  clear: both;
-  font-weight: 400;
-  line-height: 1.42857143;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-.dropdown-menu>li>a:hover {}
-
-
-</style>
-
 <nav class="navbar navbar-fixed-top" role="navigation">
 
-<div class="top-top" style=""><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%=  @user %></span></p></div>
+<div class="top-top"><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%=  @user %></span></p></div>
     <div class="container-fluid white-bck">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -70,7 +13,7 @@
 
           <li class="text-center nav-block" style="background-color: #51a7fa;"><span class="glyphicon glyphicon-home white icon-block"></span><a href="<%=root_path%>" class="white">Home</a></li>
 
-          <li class="text-center nav-block" style="background-color: #773e9c;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a href="#" class="white">About</a></li>
+          <li class="text-center nav-block" style="background-color: #773e9c;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a href="/about" class="white">About</a></li>
 
           <!-- take me to my page -->
         <% if @user %>
@@ -78,23 +21,25 @@
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 
-              <li class="text-center" style="background-color: #70bf40;"><span class="glyphicon glyphicon-user white"></span><a href="<%=user_path(current_user.id)%>" class="white">Profile</a>
+              <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_user_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Profile</a></li>
 
               <li class="text-center" style="background-color: #70bf40;"><span class="glyphicon glyphicon-cog white"></span><a href="<%=edit_user_path(current_user.id)%>" class="white">Settings</a></li>
               
               <li class="text-center" style="background-color: #70bf40;"><span class="glyphicon glyphicon-log-out white"></span><a data-method="delete" href="<%= logout_path %>" class="white">Logout</a></li>
+
             </ul>
           </li>
 
-          <% else %>
+          <% end %>
+          <% if @user == nil %>
           
           <li class="text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a href="login" class="white">Login</a></li>
 
          <% end %>
 
-         <li class="text-center nav-block" style="background-color: #dd6a0f;"><span class="glyphicon glyphicon-heart white icon-block"></span><a href="#" class="white">Pets</a></li>
+         <li class="text-center nav-block" style="background-color: #dd6a0f;"><span class="glyphicon glyphicon-heart white icon-block"></span><br><a href="/pets" class="white">Pets</a></li>
          
-         <li class="text-center nav-block" style="background-color: #f8d905;"><span class="glyphicon glyphicon-envelope white icon-block"></span><a href="#" class="white">Contact</a></li>
+         <li class="text-center nav-block" style="background-color: #f8d905;"><span class="glyphicon glyphicon-envelope white icon-block"></span><a href="/contact" class="white">Contact</a></li>
         </ul>
 
   </div>
