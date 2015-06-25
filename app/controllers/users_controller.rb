@@ -117,15 +117,15 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "small apartment"
+			if @user_preferences.size_of_home == "1"
 				# return small to medium dogs
-				return 55
-			elsif @user_preferences.size_of_home == "big apartment"
+				return 880
+			elsif @user_preferences.size_of_home == "2"
 				# return all but the largest dogs
-				return 100
-			elsif @user_preferences.size_of_home == "house"
+				return 1600
+			elsif @user_preferences.size_of_home == "3"
 				# return all dogs
-				return 200
+				return 3200
 			end
 		end
 
