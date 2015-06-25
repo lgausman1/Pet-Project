@@ -16,6 +16,7 @@
 <% if current_user == @user %>
 	<% @user.pets.each do |pet|%>
 		<img src="<%= pet.thumbnail %>">
+		<%= button_to "Remove from favorites", "/users/delete/#{pet.id}" %> 
 	<% end %>
 <!-- non-modal edit prefs -->
 

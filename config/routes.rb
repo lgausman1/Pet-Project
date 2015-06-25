@@ -41,6 +41,8 @@ Rails.application.routes.draw do
 
   post '/users/favorites/:id', to: 'users#favorites'
 
+  post '/users/delete/:id', to: 'users#delete'
+
 
 #   Prefix Verb   URI Pattern          Controller#Action
 #     root GET    /                    welcome#index

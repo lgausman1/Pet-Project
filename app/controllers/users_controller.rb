@@ -88,6 +88,14 @@ class UsersController < ApplicationController
 		redirect_to "/users/#{@user.id}/matches"
 	end
 
+	def delete
+		@user = current_user
+		pet_id = params[:id]
+		@favorite = UserPet.all.where(user_id: @user.id).where(pet_id: pet_id)
+		@favorite.delete(1)
+		redirect_to "/users/#{current_user.id}"
+	end
+
 	private
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :photo_url, :survey_info)
