@@ -52,7 +52,7 @@ class UsersController < ApplicationController
 			.where("age > ?", age_cutoff)
 			.where("weight < ?", size_of_home)
 			.where("age > ?", time_with_pet)
-		@user = User.find(params[:id])
+		@user = User.find(params[:id])	
 
 		render :matches
 	end
@@ -79,6 +79,13 @@ class UsersController < ApplicationController
 
 
 		redirect_to matches_path(@user.id)
+	end
+
+	def favorites
+		@user = current_user
+		@pet = Pet.find(params[:id])
+		@user.pets.push(@pet)
+		redirect_to "/users/#{@user.id}/matches"
 	end
 
 	private
