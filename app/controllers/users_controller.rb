@@ -17,20 +17,18 @@ class UsersController < ApplicationController
 
 	def survey
 		@user = User.find(params[:id])
-		@preference = Preference.new
 		render :survey
 	end
 
 	def show
 		@user = User.find(params[:id])
-		@preference = Preference.find_by({user_id: params[:id]})
 		render :show
 
 	end
 
 	def edit
 		@user = User.find(params[:id])
-		@preference = Preference.find_by({user_id: @user.id})
+
 		render :edit
 	end
 
@@ -42,12 +40,13 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
-		@preference = Preference.find_by({user_id: @user.id})
+
 		
 		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
 		end
+
 		@pets = Pet.all
 			.where(species: cat_or_dog)
 			.where(activity_level: activity_level)
@@ -83,30 +82,16 @@ class UsersController < ApplicationController
 		redirect_to matches_path(@user.id)
 	end
 
-	def favorites
-		@user = current_user
-		@pet = Pet.find(params[:id])
-		@user.pets.push(@pet)
-		redirect_to "/users/#{@user.id}/matches"
-	end
-
-	def delete
-		@user = current_user
-		@pet = Pet.find(params[:id])
-		@user.pets.delete(@pet)
-		redirect_to "/users/#{@user.id}"
-	end
-
 	private
 		def user_params
 			params.require(:user).permit(:first_name, :last_name, :email, :password, :photo_url, :survey_info)
 		end
 
 		def cat_or_dog
-		# should determine which set of data to sort through
-		# TODO: need to add preferences to the user
-		@user_preferences = Preference.find_by({user_id: current_user.id})
-		return @user_preferences.cat_or_dog
+			# should determine which set of data to sort through
+			# TODO: need to add preferences to the user
+			@user_preferences = Preference.find_by({user_id: current_user.id})
+			return @user_preferences.cat_or_dog
 		end
 
 		def activity_level
@@ -131,13 +116,13 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "1"
+			if @user_preferences.size_of_home == "small apartment"
 				# return small to medium dogs
 				return 880
-			elsif @user_preferences.size_of_home == "2"
+			elsif @user_preferences.size_of_home == "big apartment"
 				# return all but the largest dogs
 				return 1600
-			elsif @user_preferences.size_of_home == "3"
+			elsif @user_preferences.size_of_home == "house"
 				# return all dogs
 				return 3200
 			end
