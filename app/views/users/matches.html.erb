@@ -3,7 +3,7 @@
 <button class="edit"> <%= link_to "Edit your preferences!", edit_preferences_path(@user.id) %><br> </button>
 
 <%= button_to "Refresh pets", matches_path %>
-<div class="row" style="margin-top: 200px;">
+<div class="row" style="margin-top: 80px;">
 	<div class="col-md-12">
 	<% @pets.each do |pet| %>
 		<% if pet.thumbnail == nil %>
