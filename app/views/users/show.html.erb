@@ -13,15 +13,31 @@
 	<h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
 
+<button class="matches-button"> <%= link_to "View your matches!", "/users/#{@user.id}/matches" %><br> </button>
+
+
 <% if current_user == @user %>
-	<% @user.pets.each do |pet|%>
-		<img src="<%= pet.thumbnail %>">
-		<%= button_to "Remove from favorites", "/users/delete/#{pet.id}" %> 
-	<% end %>
+	<div class="row" style="margin-top: 80px;">
+		<div class="col-md-12">
+		<% @user.pets.each do |pet|%>
+			<% if pet.thumbnail == nil %>
+				<div style="display: none;"><%= pet.species %></div>
+			
+			<% else %>
+				<div class="col-md-3 text-center">
+					<%= link_to image_tag(pet.thumbnail), pet_path(pet.id), class: "img img-thumbnail" %>
+					<p><%= link_to pet.name, pet.link %> </p>
+					<%= button_to "Remove from favorites", "/user_pets/delete/#{pet.id}" %> 
+				</div>
+			
+			<% end %>
+		<% end %>
+		</div>
+	</div>
 <!-- non-modal edit prefs -->
 
 <!-- modalized -->
-	<%= render 'users/edit_prefs_modal'%>
+	
 <%end%>
 <br>
 
