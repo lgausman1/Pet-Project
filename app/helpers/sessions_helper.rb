@@ -7,7 +7,7 @@ module SessionsHelper
 
 	def logged_in?
 		if current_user == nil
-			redirect_to login_path
+			redirect_to root_path
 		end
 	end
 

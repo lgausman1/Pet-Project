@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
 			login(@user)
 			redirect_to user_path(@user)
 		else
-			redirect_to login_path
+			flash[:notice] = "Could not match email and password"
+			redirect_to root_path
 		end
 	end
 
@@ -23,5 +24,5 @@ class SessionsController < ApplicationController
 		def user_params
 			params.require(:user).permit(:email, :password)
 		end
-		
+
 end
