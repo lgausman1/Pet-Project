@@ -19,15 +19,17 @@ class PreferencesController < ApplicationController
 	end
 
 	def update
-		@preference = Preference.find_by({user_id: params[:id]})
+		@preference = Preference.find_by({user_id: current_user.id})
 		@preference.update(survey_params)
-		redirect_to user_path(current_user)
+		redirect_to "/users/#{@current_user.id}/matches"
 	end
 
 	private
 
 		def survey_params
-			survey_params = params.require(:preference).permit(:cat_or_dog, :activity_level, :young_children, :size_of_home, :user_id)
+			survey_params = params.require(:preference).permit(:cat_or_dog, :activity_level,
+											 :young_children, :size_of_home, :time_with_pet, :training_pet,
+											 :user_personality, :user_id)
 			# survey_params = params.require(:user).permit(:cat_or_dog, :size_of_home, :young_children,
 												# :activity_level, :time_with_pet, :training_pet, :user_id)
 		end

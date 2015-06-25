@@ -1,23 +1,26 @@
 <%= image_tag(@user.photo_url) %>
 
 <% if current_user == @user %>
+
 <div class="jumbotron">
 
 <h3>Hello, <%= @user.first_name.capitalize %></h3></div>
+
 <% else %>
-<div class="jumbotron">
-<h3><%= @user.first_name.capitalize %>'s page</h3></div>
+	<div class="jumbotron">
+	<h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
 
 <% if current_user == @user %>
 <!-- non-modal edit prefs -->
 
 <!-- modalized -->
-<%= render 'users/edit_prefs_modal'%>
+	<%= render 'users/edit_prefs_modal'%>
 <%end%>
 <br>
 
 <hr>
+
 
 <!-- took that part out because I'm not sure we'll be using it -->
 
