@@ -26,6 +26,8 @@
   </div>
   <%= render partial: "layouts/footer" %>
   <!-- modal -->
+<% if @user %>
   <%= render 'users/edit_user_modal'%>
+<% end %>
 </body>
 </html>
