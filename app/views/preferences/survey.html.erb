@@ -1,10 +1,14 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-2">
 <%= form_for @preference do |f|%>
+	<div class="form-group">
 	<p>What is your prefered animal? cat/dog</p>
-	<%= f.select :cat_or_dog, options_for_select([['cat'], ['dog']]) %>
-
+	<%= f.select :cat_or_dog,  options_for_select([['cat'], ['dog']]), class: "form-control" %></div>
+	
+	<div class="form-group">
 	<p>What is your activity level? high(you love going on walks)/average/low (if low and they want a dog, suggest small dogs)</p>
 	<%= f.select :activity_level, options_for_select([['High'], ['Medium'], ["Low"]]) %>
-
+	</div>
 	<!-- need hidded field that contains @user.id -->
 	<p> Do you have young children(less than 5 years old)?</p>
 	<%= f.select :young_children, options_for_select([['yes', 1], ['no', 2]]) %>
@@ -28,3 +32,5 @@
 
 	<%= f.submit "Submit" %>
 <% end %>
+	</div>
+</div>
