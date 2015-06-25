@@ -6,3 +6,18 @@
 .matches {
 	border-radius: 100%;
 }
+
+.img-thumbnail {
+	border: none !important;
+	box-shadow: none !important;
+	img {
+		border-radius: 100%;
+		width: 220px;
+		height: 220px;
+	}
+	
+}
+
+.edit {
+	margin: 10px;
+}
