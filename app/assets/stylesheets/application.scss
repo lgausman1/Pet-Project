@@ -80,6 +80,8 @@
 		
 		.container{
 		display: block;
+		height: 100%;
+		width: 100%;
 
 		}
 
@@ -207,10 +209,9 @@
 		width: 100%;
 		padding: 3em;
 		   height: 140px;  
-		   position: fixed; 
+		   position: relative; 
 		   bottom: 0px; 
 		   left: 0px; 
-		margin-top: 500px;
 	}
 
 /********* navbar2 *********/
