@@ -27,9 +27,9 @@
   <!-- modal -->
 <% if @user %>
 
+
   <%= render 'users/edit_user_modal', locals: {user: @user, preference: @preference} %>
-  <%= render 'users/edit_prefs_modal', locals: {user: @user, preference: @preference} %>
-<% end %>
+  <% end %>
 
 </body>
 </html>

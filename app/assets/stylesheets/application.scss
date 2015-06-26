@@ -21,6 +21,7 @@
 
 	body {
 		padding-top: 200px;
+		font-size: 18px;
 	}
 
 	/* remove outer padding */
@@ -234,9 +235,11 @@
   color: #ffffff;
 }
 
-.navbar-right a:hover, a:active, a:visited, a:link {
+.white:hover { color: #ffffff; }
+
+/*.navbar-right a:hover, a:active, a:visited, a:link {
   color: #ffffff;
-}
+}*/
 
 .icon-block {
   display: block;

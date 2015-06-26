@@ -1,10 +1,10 @@
-<nav class="navbar navbar-fixed-top" role="navigation">
+  <nav class="navbar navbar-fixed-top" role="navigation">
 
-<div class="top-top"><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%=  @user %></span></p></div>
+<div class="top-top"><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%  @user %></span></p></div>
     <div class="container-fluid white-bck">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <div class="navbar-logo" href="<%=root_path%>"><img src="../../assets/images/pet_logo.jpg" /></div>
+          <div class="navbar-logo" href="<%=root_path%>"><%= image_tag "pet_logo.jpg"%></div>
         </div>
 
         <!-- float this right -->
@@ -23,7 +23,7 @@
 
               <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_user_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Profile</a></li>
 
-            <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_prefs_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Pet Search</a></li>
+            <li class="text-center" style="background-color: #70bf40;"><a href="<%= user_path current_user.id%>/matches"><span class="glyphicon glyphicon-heart white"></span>My Pet Matches</a></li>
 
               <li class="text-center" style="background-color: #70bf40;"><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span>Logout</a></li>
 
