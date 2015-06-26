@@ -40,8 +40,6 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
-
-		
 		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
@@ -116,7 +114,6 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			binding.pry
 			if @user_preferences.size_of_home == "1" || @user_preferences.size_of_home == "small apartment"
 				# return small to medium dogs
 				return 880
@@ -162,15 +159,22 @@ class UsersController < ApplicationController
 		# string is something like "3Y 2M" for age or "5lbs. 6oz." for weight
 		# multiplier is 12 for age and 16 for weight.
 		def parse_string_to_number(string, multiplier)
-			return nil if string.nil?
-			num_string = string.gsub(/[^0-9]/, ' ')
-			# num_array is an array of the component numbers making up the string
-			num_array = num_string.split(' ').map { |s| s.to_i }
-			if num_array.length == 1
-				return num_array[0]
-			else
-				return num_array[0] * multiplier + num_array[1]
-			end
+			multiplier = age_or_weight == 'age' ? 12 : 16
+				return nil if string.nil?
+				num_string = string.gsub(/[^0-9]/, ' ')
+				# num_array is an array of the component numbers making up the string
+				num_array = num_string.split(' ').map { |s| s.to_i }	
+				if num_array.length == 1
+					# if only one digit is provided, it's a number of months for age, or a number of pounds for 
+					# weight, so we only multiply for weight
+					if age_or_weight == 'age'
+						return num_array[0]
+					else 
+						return num_array[0] * multiplier
+					end
+				else 
+					return num_array[0] * multiplier + num_array[1]
+				end 
 		end
 
 		def user_personality

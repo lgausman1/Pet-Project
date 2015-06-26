@@ -2,5 +2,11 @@
 <source src="" type="video/webm">
 <source src="" type="video/mp4">
 </video>
-<h1><%= flash[:notice] %></h1>
+<div>
+	<% if @user == nil %>
+		<button type="button" class="modal-button btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Register/Login</button>
+	<% end %>
+</div>
+<%= render 'welcome_modal'%>
+<h1> <%= flash[:notice] %></h1>
 

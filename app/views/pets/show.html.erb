@@ -6,10 +6,10 @@
 		<h1><strong><%= @pet.name %></strong></h1>
 
 		<% years = @pet.age / 12 %>
-		<% months = @pet.age - (years * 12) %>
+		<% months = @pet.age % 12  %>
 		<% age = "#{years} years and #{months} months old" %>
-		<% pounds = @pet.weight / 12 %>
-		<% oz = @pet.weight - (pounds * 16) %>
+		<% pounds = @pet.weight / 16 %>
+		<% oz = @pet.weight % 16 %>
 		<% weight = "#{pounds}lb and #{oz}oz" %>
 		<div class="pet-attributes"> Age: <%= age %> </div>
 		<div class="pet-attributes"> Sex: <%= @pet.gender %></div>
