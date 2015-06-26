@@ -1,5 +1,6 @@
 <h1>Hey <%=@user.first_name.capitalize%>! Check out these hot animals in your area!</h1> <br>
-<%= render 'users/edit_prefs_modal'%> <br>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#edit_prefs_Modal">Edit Preferences</button>
+<%= render 'users/edit_prefs_modal'%>
 
 <div class="row" style="margin-top: 80px;">
 	<%= button_to "Refresh pets", matches_path, class: "refresh-button btn btn btn-success" %>

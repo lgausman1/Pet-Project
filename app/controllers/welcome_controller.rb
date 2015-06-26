@@ -3,10 +3,6 @@ class WelcomeController < ApplicationController
 		if current_user
 			@user = current_user
 		end
-		@preference = Preference.find_by({user_id: params[:id]})
-		if current_user
-			@user = current_user
-		end
 	end
 
 	def about

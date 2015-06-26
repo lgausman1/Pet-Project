@@ -1,6 +1,12 @@
-<img class="background-img" src="https://trello-backgrounds.s3.amazonaws.com/554fe0078579f9d62c9f80b9/960x960/48b2ed7b2ad6f08fb3a2c434c240821c/Petsss.jpg" id="bgvid">
+<video autoplay loop poster="https://trello-backgrounds.s3.amazonaws.com/554fe0078579f9d62c9f80b9/960x960/48b2ed7b2ad6f08fb3a2c434c240821c/Petsss.jpg" id="bgvid">
 <source src="" type="video/webm">
 <source src="" type="video/mp4">
 </video>
-<h1><%= flash[:notice] %></h1>
+<div>
+	<% if @user == nil %>
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Register/Login</button>
+	<% end %>
+</div>
+<%= render 'welcome_modal'%>
+<h1> <%= flash[:notice] %></h1>
 

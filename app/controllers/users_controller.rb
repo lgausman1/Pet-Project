@@ -40,8 +40,6 @@ class UsersController < ApplicationController
 
 	def matches
 		@user = current_user
-
-		
 		if @user.id != params[:id].to_i
 			redirect_to "/users/#{@user.id}"
 			return
@@ -116,7 +114,6 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			binding.pry
 			if @user_preferences.size_of_home == "1" || @user_preferences.size_of_home == "small apartment"
 				# return small to medium dogs
 				return 880
