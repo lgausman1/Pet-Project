@@ -158,7 +158,11 @@ class UsersController < ApplicationController
 
 		# string is something like "3Y 2M" for age or "5lbs. 6oz." for weight
 		# multiplier is 12 for age and 16 for weight.
+<<<<<<< HEAD
 		def parse_string_to_number(string, age_or_weight)
+=======
+		def parse_string_to_number(string, age_cutoff)
+>>>>>>> 8bac368cfcd3ceea6418570c113ef77c7d283c28
 			multiplier = age_or_weight == 'age' ? 12 : 16
 				return nil if string.nil?
 				num_string = string.gsub(/[^0-9]/, ' ')

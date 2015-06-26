@@ -6,6 +6,7 @@ class PetsController < ApplicationController
 		end
 		@preference = Preference.find_by({user_id: params[:id]})
 		@pets = Pet.all
+		binding.pry
 	end
 
 	def create
