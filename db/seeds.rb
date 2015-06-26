@@ -6,11 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Pet.delete_all
-pet1 = Pet.create(name: 'mr.snickers', species: 'cat', breed: 'tabby', age: 3, gender: 'Female')
-pet2 = Pet.create(name: 'socksy wocksy', species: 'cat', breed: 'calico', age: 2, gender: 'Male')
-pet3 = Pet.create(name: 'whiskers', species: 'cat', breed: 'maincoon', age: 5, gender: 'Female')
-pet3 = Pet.create(name: 'KittyWitty', species: 'cat', breed: 'siamese', age: 4, gender: 'Male', activity_level: "High")
-
 
 def convert_age_to_months(age_string)
 	parse_string_to_number(age_string, "age")
