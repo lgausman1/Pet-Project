@@ -23,8 +23,11 @@
 
               <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_user_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Profile</a></li>
 
-            <li class="text-center" style="background-color: #70bf40;"><a href="<%= user_path current_user.id%>/matches"><span class="glyphicon glyphicon-heart white"></span>My Pet Matches</a></li>
 
+            <li class="text-center" style="background-color: #70bf40;"><%= link_to "Test",user_path  %><a href="http://www.google.com">hghgh<span class="glyphicon glyphicon-heart white"></span>My Pet Matches</a></li>
+
+
+ 
               <li class="text-center" style="background-color: #70bf40;"><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span>Logout</a></li>
 
             </ul>

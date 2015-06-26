@@ -16,7 +16,7 @@
 		<div class="pet-attributes"> Weight: <%= weight %></div> <br>
 		<div class="pet-description-container"><p class="pet-description"> <%= @pet.description %> </p></div>
 
-		<div class="pet-attributes">Find me at <%= link_to @pet.name, "https://www.sfspca.org/adoptions/pet-details/#{@pet.shelter_id}", :target => "_blank" %> </div>		
+		<div class="pet-attributes">Contact <%= link_to @pet.name, "https://www.sfspca.org/adoptions/pet-details/#{@pet.shelter_id}", :target => "_blank" %> </div>		
 
 	</div>
 
