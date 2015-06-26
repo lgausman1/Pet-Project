@@ -116,13 +116,14 @@ class UsersController < ApplicationController
 		end
 
 		def size_of_home
-			if @user_preferences.size_of_home == "small apartment"
+			binding.pry
+			if @user_preferences.size_of_home == "1" || @user_preferences.size_of_home == "small apartment"
 				# return small to medium dogs
 				return 880
-			elsif @user_preferences.size_of_home == "big apartment"
+			elsif @user_preferences.size_of_home == "2" || @user_preferences.size_of_home == "big apartment"
 				# return all but the largest dogs
 				return 1600
-			elsif @user_preferences.size_of_home == "house"
+			elsif @user_preferences.size_of_home == "3" || @user_preferences.size_of_home == "house"
 				# return all dogs
 				return 3200
 			end
