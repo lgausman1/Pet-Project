@@ -2,7 +2,7 @@
 
 Pet Matcher facilitates the process of finding a user's ideal pet. After registering the user is redirected to a survey which matches them with pet options. Users not registered are able freely browse pets.
 
-Link to heroku:
+Link to heroku: https://salty-brushlands-7577.herokuapp.com/
 
 ## Site Flow/User Stories
 

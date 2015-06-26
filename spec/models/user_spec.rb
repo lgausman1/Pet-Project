@@ -7,7 +7,7 @@ describe User do
     expect(User.new({:first_name => "hans"}).save).to be_falsey
   end
   
-   it "allows you to create if first name < 30 characters" do
+   it "allows you to create if first name < 20 characters" do
     expect(user = User.new({
       email: "han@han.co",
       password: 'hansohanso',
@@ -19,7 +19,7 @@ describe User do
     expect(user.save).to be_truthy
   end
    
-  it "has a first name < 30 characters" do
+  it "has a first name < 20 characters" do
     expect(user = User.new({
       email: "han@han.co",
       password: 'hansohanso',
