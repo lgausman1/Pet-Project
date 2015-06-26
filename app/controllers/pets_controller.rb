@@ -22,4 +22,6 @@ class PetsController < ApplicationController
 		render :show
 	end
 
+
+
 end
