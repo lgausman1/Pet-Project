@@ -70,9 +70,7 @@ class UsersController < ApplicationController
 					 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
 
 			end
-		
 
-		# API key expired for dogs: {"error":"Gone","message":"Sorry! We only provide access to the last 30 days of your data. If you'd like longer retention, please contact us at support@kimonolabs.com."}
 		response_dogs = HTTParty.get('http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
 
 		response_dogs["results"]["collection1"].each do |dog|

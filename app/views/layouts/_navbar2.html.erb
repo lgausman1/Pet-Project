@@ -1,6 +1,6 @@
   <nav class="navbar navbar-fixed-top" role="navigation">
 
-<div class="top-top"><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%= @user.first_name.capitalize %></span></p></div>
+<div class="top-top"><p class="small white">info@petmatch.com</p></div>
     <div class="container-fluid white-bck">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -20,15 +20,15 @@
         <% if @user %>
           <li id="dropdownMenu1" data-toggle="dropdown" class="dropdown text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-user white icon-block"></span><a href="#" data-toggle="dropdown" class="dropdown-toggle white">Account</a> <span class="caret white"></span>
 
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <ul class="dropdown-menu green" aria-labelledby="dropdownMenu1">
 
-              <li class="text-center" style="background-color: #70bf40;"><a data-toggle="modal" data-target="#edit_user_Modal"><span class="glyphicon glyphicon-cog white"></span>Edit Profile</a></li>
+              <li><a data-toggle="modal" data-target="#edit_user_Modal"><span class="glyphicon glyphicon-cog white"></span> Edit Profile</a></li>
 
+              <li><a data-method="get" href="<%= user_path(@user) %>"><span class="glyphicon glyphicon-user white"></span> View Profile</a></li>
 
-            <li class="text-center" style="background-color: #70bf40;">
-              <span class="glyphicon glyphicon-heart white"></span><a data-method="get" href="users/<%= @user.id %>/matches">Pet matches</a></li>
+            <li><a data-method="get" href="<%= matches_path(@user) %>"><span class="glyphicon glyphicon-heart white"></span> Pet Matches</a></li>
 
-              <li class="text-center" style="background-color: #70bf40;"><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span>Logout</a></li>
+              <li><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span> Logout</a></li>
 
             </ul>
           </li>
