@@ -1,6 +1,6 @@
   <nav class="navbar navbar-fixed-top" role="navigation">
 
-<div class="top-top"><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%  @user %></span></p></div>
+<div class="top-top"><p class="small white">info@petmatch.com<span style="margin-left: 50px;">Hello, <%= @user.first_name.capitalize %></span></p></div>
     <div class="container-fluid white-bck">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -15,6 +15,7 @@
 
           <li class="text-center nav-block" style="background-color: #773e9c;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a href="/about" class="white">About</a></li>
 
+
           <!-- take me to my page -->
         <% if @user %>
           <li id="dropdownMenu1" data-toggle="dropdown" class="dropdown text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-user white icon-block"></span><a href="#" data-toggle="dropdown" class="dropdown-toggle white">Account</a> <span class="caret white"></span>
@@ -25,7 +26,7 @@
 
 
             <li class="text-center" style="background-color: #70bf40;">
-              <span class="glyphicon glyphicon-heart white"></span><a href="users/<%= @user.id %>/matches">Pet matches</a></li>
+              <span class="glyphicon glyphicon-heart white"></span><a data-method="get" href="users/<%= @user.id %>/matches">Pet matches</a></li>
 
               <li class="text-center" style="background-color: #70bf40;"><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span>Logout</a></li>
 
