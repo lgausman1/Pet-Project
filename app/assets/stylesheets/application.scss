@@ -10,16 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+
  *= require rails_bootstrap_forms
+ *= require_self
+ *= require_tree .
+
+
  */
-    body,html{
+    html{
 		height: 100%;
-		padding-bottom: 300px;
 	}
 
 	body {
+		padding-bottom: 200px;
 		padding-top: 200px;
 		font-size: 18px;
 	}

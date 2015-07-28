@@ -30,5 +30,8 @@
   <%= render 'users/edit_user_modal', locals: {user: @user, preference: @preference} %>
   <% end %>
 
+<%= render 'layouts/welcome_modal'%>
+<h1> <%= flash[:notice] %></h1>
+
 </body>
 </html>

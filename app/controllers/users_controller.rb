@@ -56,21 +56,27 @@ class UsersController < ApplicationController
 		render :matches
 	end
 
+
 	def refresh_pets
 		Pet.delete_all
 		@user = current_user
-		response_cats = HTTParty.get 'http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
-		response_cats["results"]["collection1"].each do |cat|
+		# added () after get
+		response_cats = HTTParty.get('http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
 
+		response_cats["results"]["collection1"].each do |cat|
+			# if status is 200
 			Pet.create({name: cat["name"], species: "cat", gender: cat["gender"], age: convert_age_to_months(cat["age"]),
 					 weight: convert_weight_to_ounces(cat["weight"]), description: cat["description"],
 					 thumbnail: cat["picture"]["src"], shelter_id: cat["id"], personality: cat_personality(cat["personality"])})
 
 			end
+		
 
-		response_dogs = HTTParty.get 'http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc'
+		# API key expired for dogs: {"error":"Gone","message":"Sorry! We only provide access to the last 30 days of your data. If you'd like longer retention, please contact us at support@kimonolabs.com."}
+		response_dogs = HTTParty.get('http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
 
 		response_dogs["results"]["collection1"].each do |dog|
+			# if status is 200
 			Pet.create({name: dog["name"], species: "dog", gender: dog["gender"], age: convert_age_to_months(dog["age"]),
 					 weight: convert_weight_to_ounces(dog["weight"]), description: dog["description"], thumbnail: dog["picture"]["src"],
 					 personality: dog_personality(dog["personality"]), activity_level: dog["activity_level"], shelter_id: dog["id"]})
