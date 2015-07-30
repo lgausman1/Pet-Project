@@ -18,13 +18,14 @@
 
 </head>
 <body>
+<div id="wrapper">
 <%= render partial: "layouts/navbar2", locals: {user: @user} %>
 
   <div class="container">
     <%= yield %>
   </div>
   
-  <%= render partial: "layouts/footer" %>
+
   <!-- modal -->
   <% if @user %>
   <%= render 'users/edit_user_modal', locals: {user: @user, preference: @preference} %>
@@ -32,6 +33,7 @@
 
 <%= render 'layouts/welcome_modal'%>
 <h1> <%= flash[:notice] %></h1>
-
+<%= render partial: "layouts/footer" %>
+</div><!-- end wrapper -->
 </body>
 </html>

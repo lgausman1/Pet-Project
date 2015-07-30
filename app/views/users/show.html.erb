@@ -4,21 +4,36 @@
 
 <% if current_user == @user %>
 
-<div class="jumbotron">
-
-<h3>Hello, <%= @user.first_name.capitalize %></h3></div>
-
+<div class="row">
+	<div class="col-md-12 well" style="background: transparent;">
+		<div class="col-md-4">
+			<h3>Hello, <%= @user.first_name.capitalize %></h3>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<h4>Your settings:</h4>
+				<div class="col-md-3"><%= link_to "View your matches!", "/users/#{@user.id}/matches", class: "btn btn-success" %></div>
+				<div class="col-md-3"><button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit_prefs_Modal">Edit Preferences</button>
+				</div>
+				<div class="col-md-3">
+					<%= button_to "Logout", logout_path, class: "btn btn-primary", method: :delete %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <% else %>
 	<div class="jumbotron">
 	<h3><%= @user.first_name.capitalize %>'s page</h3></div>
 <% end %>
 
- <%= link_to "View your matches!", "/users/#{@user.id}/matches", class: "btn btn btn-success" %><br>
-
+<%= render 'users/edit_prefs_modal'%> 
 
 <% if current_user == @user %>
 	<div class="row" style="margin-top: 80px;">
-		<div class="col-md-12">
+	<h3>Here are your favorite pets from your pet match:</h3>
+		<div class="col-md-12 well" style="background: transparent;">
+		
 		<% @user.pets.each do |pet|%>
 			<% if pet.thumbnail == nil %>
 				<div style="display: none;"><%= pet.species %></div>
@@ -27,7 +42,7 @@
 				<div class="col-md-3 text-center">
 					<%= link_to image_tag(pet.thumbnail), pet_path(pet.id), class: "img img-thumbnail" %>
 					<p><%= link_to pet.name, pet.link %> </p>
-					<%= button_to "Remove from favorites", "/user_pets/delete/#{pet.id}" %> 
+					<%= button_to "Remove from favorites", "/user_pets/delete/#{pet.id}", class: "btn btn-danger" %> 
 				</div>
 			
 			<% end %>
@@ -39,11 +54,9 @@
 <!-- modalized -->
 	
 <%end%>
-<br>
 
-<hr>
 
 
 
 <!-- logout button -->
-<%= button_to "Logout", logout_path, class: "btn btn-primary", method: :delete %>
+

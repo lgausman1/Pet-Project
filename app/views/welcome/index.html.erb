@@ -1,11 +1,27 @@
 <video autoplay loop poster="https://trello-backgrounds.s3.amazonaws.com/554fe0078579f9d62c9f80b9/960x960/48b2ed7b2ad6f08fb3a2c434c240821c/Petsss.jpg" id="bgvid">
-<source src="" type="video/webm">
-<source src="" type="video/mp4">
 </video>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-8 home-info">
+			<h1>Welcome to Pet Match</h1>
+
+				<p class="intro-p">We here to help you find the purr-fect pet to compliment your lifestyle. Browse local pets to find your match. We help you connect the dots to long walks on the beach or curling up next to a roaring fire with an amazing furry companion.</p>
+				<p class="content-p">We partner with local animal shelters and rescues to provide a wide array of available pets. Check out our pet profiles today!</p>
+				<p class="content-p">Each of these pets are wonderful in their own unique way. We'll help you assess a great fit for your level of activity and commitment. So reach out today &ndash; what do you have to lose?</p>
+
+		</div>
+		<div class="col-md-3 col-md-offset-1">
+			<% if @user == nil %>
+				<button type="button" class="modal-button btn btn-info" data-toggle="modal" data-target="#myModal">Register/Login</button>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
 <div>
-	<% if @user == nil %>
-		<button type="button" class="modal-button btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Register/Login</button>
-	<% end %>
+
 </div>
 
 
