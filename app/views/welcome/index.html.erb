@@ -13,6 +13,9 @@
 		<div class="col-md-3 col-md-offset-1">
 			<% if @user == nil %>
 				<button type="button" class="modal-button btn btn-info" data-toggle="modal" data-target="#myModal">Register/Login</button>
+
+			<% else %>
+				<%= button_to "Logout", logout_path, class: "btn btn-primary", method: :delete %>
 			<% end %>
 		</div>
 	</div>

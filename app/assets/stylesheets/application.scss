@@ -46,7 +46,6 @@ video#bgvid {
 	z-index: -100;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
-	/*background: url(polina.jpg) no-repeat;*/
 	background-size: cover;
 	}
 
@@ -158,4 +157,29 @@ ul.green li a:hover {
 .content-p {
 	font-size: 18px;
 	line-height: 26px;
+}
+
+/********* nav style for mobile ***********/
+
+@media screen and (max-width: 320px) {
+	body {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.top-top {
+		display: none;
+	}
+	.nav-block {
+		width: 100%;
+		margin: 0;
+	}
+	nav.navbar-fixed-top {
+		position: relative;
+	}
+
+	#footer {
+		position: relative;
+		height: auto;
+	}
 }
