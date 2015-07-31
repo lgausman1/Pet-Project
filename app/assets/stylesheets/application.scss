@@ -161,7 +161,7 @@ ul.green li a:hover {
 
 /********* nav style for mobile ***********/
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 384px) {
 	body {
 		padding-top: 0;
 		padding-bottom: 0;
@@ -181,5 +181,36 @@ ul.green li a:hover {
 	#footer {
 		position: relative;
 		height: auto;
+	}
+}
+
+@media screen and (min-width: 460px) and (max-width: 677px) {
+	body {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.top-top {
+		display: none;
+	}
+	.nav-block {
+		margin: 0;
+	}
+	nav.navbar-fixed-top {
+		position: relative;
+	}
+
+	#footer {
+		position: relative;
+		height: auto;
+	}
+	.margin-right {
+		margin-right: 0!important;
+		margin-top: 0;
+	}
+	.navbar-logo img {
+		transform: scale(0.5,0.5);
+		margin-top: -20px;
+    	margin-left: -50px;
 	}
 }
