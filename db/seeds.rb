@@ -10,8 +10,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28240948-2fab58f0.jpg?itok=jCnn3pXU",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28240948"
+			}
 	},
 	{
 		name:"Archer",
@@ -24,8 +23,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/27968642-17de4a58.jpg?itok=QtyCIwe6",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/27968642"
+			}
 	},
 	{
 		name:"Virginia",
@@ -38,8 +36,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628829-photo.jpg?itok=N2ewn5Nn",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28628829"
+			}
 	},
 	{
 		name:"Permelia",
@@ -52,8 +49,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628160-3423478b.jpg?itok=jG7WWu4o",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28628160"
+			}
 	},
 	{
 		name:"Mark",
@@ -66,8 +62,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628052-79ee8af2.jpg?itok=EYarZUdo",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28628052"
+			}
 	},
 	{
 		name:"Maranella",
@@ -80,8 +75,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628064-a80bca7d.jpg?itok=YGYRY_6Z",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28628064"
+			}
 	},
 	{
 		name:"Juju Bean",
@@ -95,8 +89,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/24197498-738aff1c.jpg?itok=RtVPLVfG",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/24197498"
+			}
 	},
 	{
 		name:"Wampus",
@@ -110,8 +103,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/25140783-21b997a8.jpg?itok=OXBNuahn",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/25140783"
+			}
 	},
 	{
 		name:"Rowdy",
@@ -127,8 +119,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28670514-b56ce4f2.jpg?itok=w1qIDTZp",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28670514"
+			}
 	},
 	{
 		name:"Feather",
@@ -144,8 +135,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28658098-b88f69fd.jpg?itok=EJE-hYIH",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28658098"
+			}
 	},
 	{
 		name:"Bo",
@@ -159,8 +149,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/25219825-404c74c5.jpg?itok=6AfwGX5L",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/25219825"
+			}
 	},
 	{
 		name:"Tatum",
@@ -174,8 +163,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28634485-13b4344c.jpg?itok=3XbXnYPD",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28634485"
+			}
 	},
 	{
 		name:"Della",
@@ -189,8 +177,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28609426-bf9adbf0.jpg?itok=zmvblZkT",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/28609426"
+			}
 	},
 	{
 		name:"Barley",
@@ -204,8 +191,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/14286251-8cc695e3.jpg?itok=3eaTpX4z",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/14286251"
+			}
 	},
 	{
 		name:"Lana",
@@ -219,8 +205,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/23683847-95ac59ae.jpg?itok=Urg3mPpz",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/23683847"
+			}
 	},
 	{
 		name:"Charley",
@@ -234,8 +219,7 @@ pets = Pet.create([
 			alt:"",
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/20818764-2965006d.jpg?itok=cSdaINaX",
 			text:""
-			},
-		url:"https://www.sfspca.org/adoptions/pet-details/20818764"
+			}
 	}
 ])
 
