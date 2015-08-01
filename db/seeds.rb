@@ -11,7 +11,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28240948-2fab58f0.jpg?itok=jCnn3pXU",
 			text:""
 			},
-		index:1,
 		url:"https://www.sfspca.org/adoptions/pet-details/28240948"
 	},
 	{
@@ -26,7 +25,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/27968642-17de4a58.jpg?itok=QtyCIwe6",
 			text:""
 			},
-		index:2,
 		url:"https://www.sfspca.org/adoptions/pet-details/27968642"
 	},
 	{
@@ -41,7 +39,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628829-photo.jpg?itok=N2ewn5Nn",
 			text:""
 			},
-		index:3,
 		url:"https://www.sfspca.org/adoptions/pet-details/28628829"
 	},
 	{
@@ -56,7 +53,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628160-3423478b.jpg?itok=jG7WWu4o",
 			text:""
 			},
-		index:4,
 		url:"https://www.sfspca.org/adoptions/pet-details/28628160"
 	},
 	{
@@ -71,7 +67,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628052-79ee8af2.jpg?itok=EYarZUdo",
 			text:""
 			},
-		index:5,
 		url:"https://www.sfspca.org/adoptions/pet-details/28628052"
 	},
 	{
@@ -86,7 +81,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28628064-a80bca7d.jpg?itok=YGYRY_6Z",
 			text:""
 			},
-		index:6,
 		url:"https://www.sfspca.org/adoptions/pet-details/28628064"
 	},
 	{
@@ -102,7 +96,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/24197498-738aff1c.jpg?itok=RtVPLVfG",
 			text:""
 			},
-		index:7,
 		url:"https://www.sfspca.org/adoptions/pet-details/24197498"
 	},
 	{
@@ -118,7 +111,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/25140783-21b997a8.jpg?itok=OXBNuahn",
 			text:""
 			},
-		index:8,
 		url:"https://www.sfspca.org/adoptions/pet-details/25140783"
 	},
 	{
@@ -136,7 +128,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28670514-b56ce4f2.jpg?itok=w1qIDTZp",
 			text:""
 			},
-		index:9,
 		url:"https://www.sfspca.org/adoptions/pet-details/28670514"
 	},
 	{
@@ -154,7 +145,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28658098-b88f69fd.jpg?itok=EJE-hYIH",
 			text:""
 			},
-		index:10,
 		url:"https://www.sfspca.org/adoptions/pet-details/28658098"
 	},
 	{
@@ -170,7 +160,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/25219825-404c74c5.jpg?itok=6AfwGX5L",
 			text:""
 			},
-		index:11,
 		url:"https://www.sfspca.org/adoptions/pet-details/25219825"
 	},
 	{
@@ -186,7 +175,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28634485-13b4344c.jpg?itok=3XbXnYPD",
 			text:""
 			},
-		index:12,
 		url:"https://www.sfspca.org/adoptions/pet-details/28634485"
 	},
 	{
@@ -202,7 +190,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/28609426-bf9adbf0.jpg?itok=zmvblZkT",
 			text:""
 			},
-		index:13,
 		url:"https://www.sfspca.org/adoptions/pet-details/28609426"
 	},
 	{
@@ -218,7 +205,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/14286251-8cc695e3.jpg?itok=3eaTpX4z",
 			text:""
 			},
-		index:14,
 		url:"https://www.sfspca.org/adoptions/pet-details/14286251"
 	},
 	{
@@ -234,7 +220,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/23683847-95ac59ae.jpg?itok=Urg3mPpz",
 			text:""
 			},
-		index:15,
 		url:"https://www.sfspca.org/adoptions/pet-details/23683847"
 	},
 	{
@@ -250,7 +235,6 @@ pets = Pet.create([
 			src:"https://www.sfspca.org/sites/default/files/styles/480_width/public/images/animals/20818764-2965006d.jpg?itok=cSdaINaX",
 			text:""
 			},
-		index:16,
 		url:"https://www.sfspca.org/adoptions/pet-details/20818764"
 	}
 ])
