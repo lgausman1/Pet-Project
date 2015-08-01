@@ -1,24 +1,28 @@
-  <nav class="navbar navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-fixed-top">
 
 <div class="top-top"><p class="small white">info@petmatch.com</p></div>
     <div class="container-fluid white-bck">
     <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <div class="navbar-logo" href="<%=root_path%>"><%= image_tag "pet_logo.jpg", width: "250px", height: "110px"%></div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+         </button>
         </div>
 
         <!-- float this right -->
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <ul class="navbar-right margin-right">
+        <div class="navbar-right navbar-collapse margin-right" role="navigation" id="navbar-collapse-1">
+        <ul>
+          <li class="text-center nav-block" style="background-color: #51a7fa;"><span class="glyphicon glyphicon-home white icon-block"></span><a href="<%=root_path%>" class="white"> Home</a></li>
 
-          <li class="text-center nav-block" style="background-color: #51a7fa;"><span class="glyphicon glyphicon-home white icon-block"></span><a href="<%=root_path%>" class="white">Home</a></li>
-
-          <li class="text-center nav-block" style="background-color: #773e9c;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a href="/about" class="white">About</a></li>
-
+          <li class="text-center nav-block" style="background-color: #773e9c;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a href="/about" class="white"> About</a></li>
 
           <!-- take me to my page -->
         <% if @user %>
-          <li id="dropdownMenu1" data-toggle="dropdown" class="dropdown text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-user white icon-block"></span><a href="#" data-toggle="dropdown" class="dropdown-toggle white">Account</a> <span class="caret white"></span>
+          <li id="dropdownMenu1" data-toggle="dropdown" class="dropdown text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-user white icon-block"></span><a href="#" data-toggle="dropdown" class="dropdown-toggle white"> Account</a> <span class="caret white"></span>
 
             <ul class="dropdown-menu green" aria-labelledby="dropdownMenu1">
 
@@ -26,7 +30,7 @@
 
               <li><a data-method="get" href="<%= user_path(@user) %>"><span class="glyphicon glyphicon-user white"></span> View Profile</a></li>
 
-            <li><a data-method="get" href="<%= matches_path(@user) %>"><span class="glyphicon glyphicon-heart white"></span> Pet Matches</a></li>
+              <li><a data-method="get" href="<%= matches_path(@user) %>"><span class="glyphicon glyphicon-heart white"></span> Pet Matches</a></li>
 
               <li><a data-method="delete" href="<%= logout_path %>" class="white"><span class="glyphicon glyphicon-log-out white"></span> Logout</a></li>
 
@@ -36,15 +40,15 @@
           <% end %>
           <% if @user == nil %>
           
-          <li class="text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-log-in white icon-block"></span><br><a data-target="#myModal" data-toggle="modal" class="white">Login</a></li>
+            <li class="text-center nav-block" style="background-color: #70bf40;"><span class="glyphicon glyphicon-log-in white icon-block"></span><a data-target="#myModal" data-toggle="modal" class="white"> Login</a></li>
 
          <% end %>
 
-         <li class="text-center nav-block" style="background-color: #dd6a0f;"><span class="glyphicon glyphicon-heart white icon-block"></span><br><a href="/pets" class="white">Pets</a></li>
-         
-         <li class="text-center nav-block" style="background-color: #f8d905;"><span class="glyphicon glyphicon-envelope white icon-block"></span><a href="/contact" class="white">Contact</a></li>
-
-        </ul>
+             <li class="text-center nav-block" style="background-color: #dd6a0f;"><span class="glyphicon glyphicon-heart white icon-block"></span><a href="/pets" class="white"> Pets </a></li>
+             
+             <li class="text-center nav-block" style="background-color: #f8d905;"><span class="glyphicon glyphicon-envelope white icon-block"></span><a href="/contact" class="white"> Contact</a></li>
+         </ul>
+        </div>
 
   </div>
 </nav>

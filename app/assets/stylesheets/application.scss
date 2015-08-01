@@ -97,6 +97,7 @@ video#bgvid {
 .icon-block {
   display: block;
   margin-bottom: 5px;
+  margin-right: 5px;
 }
 .white-bck {
   background-color: #ffffff;
@@ -173,6 +174,7 @@ ul.green li a:hover {
 	.nav-block {
 		width: 100%;
 		margin: 0;
+		height: auto;
 	}
 	nav.navbar-fixed-top {
 		position: relative;
@@ -181,6 +183,16 @@ ul.green li a:hover {
 	#footer {
 		position: relative;
 		height: auto;
+	}
+	.navbar-logo img {
+		transform: scale(0.5,0.5); 
+		/* compensate for the scaling */
+		margin-top: -20px;
+		margin-left: -55px;
+		margin-bottom: -60px;
+	}
+	.navbar-toggle .icon-bar {
+		background-color: #ccc;
 	}
 }
 
@@ -195,6 +207,7 @@ ul.green li a:hover {
 	}
 	.nav-block {
 		margin: 0;
+		height: auto;
 	}
 	nav.navbar-fixed-top {
 		position: relative;
@@ -212,5 +225,9 @@ ul.green li a:hover {
 		transform: scale(0.5,0.5);
 		margin-top: -20px;
     	margin-left: -50px;
+	}
+
+	.navbar-toggle .icon-bar {
+		background-color: #ccc;
 	}
 }
