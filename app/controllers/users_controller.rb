@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 		Pet.delete_all
 		@user = current_user
 		# added () after get
-		response_cats = HTTParty.get('http://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
+		response_cats = HTTParty.get('https://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
 
 		response_cats["results"]["collection1"].each do |cat|
 			# if status is 200
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
 			end
 
-		response_dogs = HTTParty.get('http://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
+		response_dogs = HTTParty.get('https://www.kimonolabs.com/api/ch62ea86?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
 
 		response_dogs["results"]["collection1"].each do |dog|
 			# if status is 200
