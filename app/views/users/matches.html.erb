@@ -1,7 +1,14 @@
-<h1>Hey <%=@user.first_name.capitalize%>! Check out these hot animals in your area!</h1> <br>
+<div class="row">
+	<div class="col-md-9">
+		<h1>Hey <%=@user.first_name.capitalize%>! Here are the available pets in your area:</h1>
+	</div>
+	<div class="col-md-2 col-md-offset-1">
+		<%= button_to "Refresh pets", matches_path, class: "refresh-button btn btn btn-success" %>
+		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit_prefs_Modal" style="margin: 10px 0 0 15px;">Edit Preferences</button>
+	</div>
+</div>
 
 <div class="row" style="margin-top: 80px;">
-	<%= button_to "Refresh pets", matches_path, class: "refresh-button btn btn btn-success" %>
 	<div class="col-md-12">
 	<% @pets.each do |pet| %>
 		<% if pet.thumbnail == nil %>
@@ -22,3 +29,4 @@
 
 	</div>
 </div>
+<%= render 'users/edit_prefs_modal'%> 
