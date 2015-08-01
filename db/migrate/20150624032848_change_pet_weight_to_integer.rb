@@ -1,5 +1,5 @@
 class ChangePetWeightToInteger < ActiveRecord::Migration
   def change
-  	#change_column :pets, :weight, :integer
+  	change_column :pets, :weight, :integer
   end
 end
