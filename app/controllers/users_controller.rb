@@ -58,7 +58,8 @@ class UsersController < ApplicationController
 
 
 	def refresh_pets
-		Pet.delete_all
+		Pet.destroy_all
+		#PG::ForeignKeyViolation: ERROR:  update or delete on table "pets" violates foreign key constraint "fk_rails_dedd5edecd" on table "user_pets
 		@user = current_user
 		# added () after get
 		response_cats = HTTParty.get('https://www.kimonolabs.com/api/bo1g4i5q?apikey=0AQUI7VQU8WOOshS9WxdFpe02TiuGorc')
