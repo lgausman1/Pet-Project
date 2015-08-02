@@ -1,0 +1,417 @@
+.rails-bootstrap-forms-date-select select,
+.rails-bootstrap-forms-time-select select,
+.rails-bootstrap-forms-datetime-select select {
+  display: inline-block;
+  width: auto;
+}
+
+.rails-bootstrap-forms-error-summary {
+  margin-top: 10px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+
+
+ */
+/* line 21, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+html {
+  height: 100%;
+}
+
+/* line 25, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+body {
+  padding-bottom: 250px;
+  padding-top: 200px;
+  font-size: 18px;
+  min-height: 100%;
+  position: relative;
+}
+
+/* line 33, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+#wrapper {
+  min-height: 100%;
+}
+
+/************** background image homepage *************/
+/* line 39, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+}
+
+/***** footer ***********/
+/* line 55, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+#footer {
+  background-color: #773e9c;
+  color: #ffffff;
+  width: 100%;
+  padding: 2em 0;
+  position: absolute;
+  bottom: 0px;
+  height: 240px;
+}
+
+/* line 65, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+#footer a {
+  color: #ffffff;
+}
+
+/* line 69, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+#footer a:hover {
+  color: #ffffff;
+}
+
+/********* navbar2 *********/
+/* line 74, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.navbar-logo {
+  float: left;
+}
+
+/* line 78, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.nav-block {
+  height: 80px;
+  width: 80px;
+  float: left;
+  margin-left: 20px;
+  display: inline-block;
+  padding: 15px;
+}
+
+/* line 86, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.navbar-right {
+  list-style-type: none;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+/* line 91, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.white {
+  color: #ffffff;
+}
+
+/* line 95, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.white:hover {
+  color: #ffffff;
+}
+
+/* line 98, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.icon-block {
+  display: block;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+/* line 103, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.white-bck {
+  background-color: #ffffff;
+}
+
+/* line 107, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.top-top {
+  background-color: #dd6a0f;
+  padding: 0.4em;
+  border-bottom: 8px solid #ffffff;
+}
+
+/* line 114, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #ffffff;
+}
+
+/* line 124, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.dropdown-menu > li > a:hover {
+  color: #ffffff;
+}
+
+/* line 128, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+ul.green {
+  background-color: #70bf40;
+  padding: 0 auto;
+}
+
+/* line 133, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+ul.green li a {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+/* line 138, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+ul.green li a:hover {
+  background-color: blue;
+}
+
+/* line 142, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.margin-right {
+  margin-right: 15px !important;
+}
+
+/********* end navbar2 *********/
+/* line 148, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.home-info {
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+/* line 153, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.intro-p {
+  font-size: 20px;
+  line-height: 32px;
+  color: #999999;
+}
+
+/* line 159, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+.content-p {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+/********* nav style for mobile ***********/
+@media screen and (max-width: 384px) {
+  /* line 167, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  body {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* line 172, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .top-top {
+    display: none;
+  }
+
+  /* line 175, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .nav-block {
+    width: 100%;
+    margin: 0;
+    height: auto;
+  }
+
+  /* line 180, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  nav.navbar-fixed-top {
+    position: relative;
+  }
+
+  /* line 184, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  #footer {
+    position: relative;
+    height: auto;
+  }
+
+  /* line 188, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .navbar-logo img {
+    transform: scale(0.5, 0.5);
+    /* compensate for the scaling */
+    margin-top: -20px;
+    margin-left: -55px;
+    margin-bottom: -60px;
+  }
+
+  /* line 195, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .navbar-toggle .icon-bar {
+    background-color: #ccc;
+  }
+}
+@media screen and (min-width: 460px) and (max-width: 677px) {
+  /* line 201, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  body {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* line 206, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .top-top {
+    display: none;
+  }
+
+  /* line 209, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .nav-block {
+    margin: 0;
+    height: auto;
+  }
+
+  /* line 213, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  nav.navbar-fixed-top {
+    position: relative;
+  }
+
+  /* line 217, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  #footer {
+    position: relative;
+    height: auto;
+  }
+
+  /* line 221, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .margin-right {
+    margin-right: 0 !important;
+    margin-top: 0;
+  }
+
+  /* line 225, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .navbar-logo img {
+    transform: scale(0.5, 0.5);
+    margin-top: -20px;
+    margin-left: -50px;
+  }
+
+  /* line 231, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/application.scss */
+  .navbar-toggle .icon-bar {
+    background-color: #ccc;
+  }
+}
+/* line 6, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.pet-name {
+  text-align: center;
+}
+
+/* line 10, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.pet-pic {
+  text-align: center;
+  border: 3px solid purple;
+}
+
+/* line 17, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.pet-pic-container {
+  text-align: center;
+}
+
+/* line 21, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.pet-attributes {
+  font-size: 150%;
+}
+
+/* line 25, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.pet-description-container {
+  float: right;
+  position: relative;
+}
+
+/* line 30, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.pet-description {
+  font-size: 150%;
+}
+
+/* line 34, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.img-thumbnail {
+  border: none !important;
+  box-shadow: none !important;
+}
+/* line 37, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.img-thumbnail img {
+  width: 220px;
+  height: 220px;
+  border: 3px solid black;
+}
+
+/* line 46, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/pets.scss */
+.matchesDiv {
+  height: 350px;
+}
+/* line 6, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+.matches {
+  border-radius: 100%;
+}
+
+/* line 10, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+.img-thumbnail {
+  border: none !important;
+  box-shadow: none !important;
+}
+/* line 13, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+.img-thumbnail img {
+  width: 220px;
+  height: 220px;
+  border: 3px solid black;
+}
+
+/* line 22, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+.edit {
+  margin: 10px;
+  background: black;
+}
+
+/* line 27, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+.fave-button {
+  border: 15px;
+}
+
+/* line 31, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+.refresh-button {
+  border: 15px;
+  margin: 15px;
+}
+
+/* line 37, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/users.scss */
+select {
+  margin: 50px;
+  border: 1px solid #111;
+  background: transparent;
+  width: 150px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/* line 1, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/welcome.scss */
+#modal-btn {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* line 7, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/welcome.scss */
+#formToggle {
+  margin: 20px auto;
+}
+
+/* line 11, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/welcome.scss */
+#formToggle2 {
+  margin: 20px auto;
+}
+
+/* line 15, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/welcome.scss */
+.background-img {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 24, /Users/lindagausman/wdi/Pet-Project/app/assets/stylesheets/welcome.scss */
+.modal-button {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 40%;
+}
