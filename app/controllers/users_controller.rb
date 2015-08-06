@@ -6,29 +6,29 @@ class UsersController < ApplicationController
 
 	def create
 		# changed User.create
-		@user = User.new(user_params)
+		@user = User.create(user_params)
 
-		if @user.save
-			# login user
-			login(@user)
-			# redirect to set up 'cat_or_dog' or will throw an error
+		login(@user)
+		if @user != nil
 			redirect_to "/preferences/users/#{@user.id}"
-
 		else
-			flash[:nosignup] = "All fields are required"
+			flash[:notice] = "There was an error: " + @user.errors
 			#flash[:notice] = @user.errors.full_messages.to_sentence
 			redirect_to root_path
-
 		end
 
-		#login(@user)
-		#if @user != nil
-			#redirect_to "/preferences/users/#{@user.id}"
+		# if @user.save
+		# 	# login user
+		# 	login(@user)
+		# 	# redirect to set up 'cat_or_dog' or will throw an error
+		# 	redirect_to "/preferences/users/#{@user.id}"
+
 		# else
-		# 	flash[:notice] = "There was an error: " + @user.errors
+		# 	flash[:nosignup] = "All fields are required"
 		# 	#flash[:notice] = @user.errors.full_messages.to_sentence
 		# 	redirect_to root_path
-		#end
+
+		# end
 	end
 
 	def survey

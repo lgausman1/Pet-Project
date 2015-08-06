@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 			login(@user)
 			redirect_to user_path(@user)
 		else
-			#flash[:notice] = "Could not match email and password"
+			flash[:notice] = "Could not match email and password"
 			redirect_to root_path
 		end
 	end
