@@ -6,11 +6,17 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
-	validates :password,
+	validates :password, presence: true,
 	length: {:minimum => 5},
 	length: {:maximum => 20}
 
-	validates :first_name, length: { maximum: 20 }
+	validates :first_name, presence: true, length: { maximum: 20 }
+
+	validates :last_name, presence: true, length: { maximum: 25 }
+
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 
 	serialize :survey_info
 	def self.confirm (params)
@@ -18,3 +24,4 @@ class User < ActiveRecord::Base
 		@user.try(:authenticate, params[:password])
 	end
 end
+

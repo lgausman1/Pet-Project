@@ -13,11 +13,9 @@ Rails.application.routes.draw do
 
   get '/users/:id/survey', to: 'users#survey', as: "new_survey"
 
-  get 'login', to: "sessions#new", as: "login"
-
-  post 'sessions', to: "sessions#create"
-
-  delete "logout", to: "sessions#delete", as: "logout"
+  get '/login', to: "sessions#new", as: "login"
+  post '/sessions', to: "sessions#create"
+  delete "/logout", to: "sessions#delete", as: "logout"
 
   get '/pets', to: "pets#index", as: "pets"
 

@@ -1,8 +1,8 @@
 var petmatch = {};
 petmatch.memberSignIn = function() {
-	$("#formToggle").on('click', function(){
+	$("#formToggle").on('click', function(e){
+		e.preventDefault();
 		var modalHeader = $("#myModalLabel").html("Sign In");
-		console.log("this works");
 		$("#signDiv").hide();
 		$("#logDiv").show();
 		//more logic
@@ -10,7 +10,8 @@ petmatch.memberSignIn = function() {
 }
 
 petmatch.memberRegister = function() {
-	$("#formToggle2").on('click', function(){
+	$("#formToggle2").on('click', function(e){
+		e.preventDefault();
 		var modalHeader = $("#myModalLabel").html("Register");
 		$("#logDiv").hide();
 		$("#signDiv").show();

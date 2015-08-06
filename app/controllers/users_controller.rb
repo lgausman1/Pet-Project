@@ -5,14 +5,30 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(user_params)
-		login(@user)
-		if @user != nil
+		# changed User.create
+		@user = User.new(user_params)
+
+		if @user.save
+			# login user
+			login(@user)
+			# redirect to set up 'cat_or_dog' or will throw an error
 			redirect_to "/preferences/users/#{@user.id}"
+
 		else
-			flash[:notice] = @user.errors.full_messages.to_sentence
+			flash[:nosignup] = "All fields are required"
+			#flash[:notice] = @user.errors.full_messages.to_sentence
 			redirect_to root_path
+
 		end
+
+		#login(@user)
+		#if @user != nil
+			#redirect_to "/preferences/users/#{@user.id}"
+		# else
+		# 	flash[:notice] = "There was an error: " + @user.errors
+		# 	#flash[:notice] = @user.errors.full_messages.to_sentence
+		# 	redirect_to root_path
+		#end
 	end
 
 	def survey
@@ -58,7 +74,7 @@ class UsersController < ApplicationController
 
 
 	def refresh_pets
-		Pet.destroy_all
+		Pet.delete_all
 		#PG::ForeignKeyViolation: ERROR:  update or delete on table "pets" violates foreign key constraint "fk_rails_dedd5edecd" on table "user_pets
 		@user = current_user
 		# added () after get
