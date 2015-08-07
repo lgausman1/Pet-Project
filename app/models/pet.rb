@@ -1,6 +1,6 @@
 class Pet < ActiveRecord::Base
 	has_many :user_pets, :dependent => :delete_all
-	has_many :users, :through => :user_pets
+	has_many :users, :through => :user_pets, :dependent => :delete_all
 
 	def display_age
 		# should return something like "5 years and 3 months"
